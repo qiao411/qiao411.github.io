@@ -1,0 +1,327 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+import Comments from "@/components/blocks/Comments.astro";
+import Toast from "@/components/blocks/Toast.astro";
+import site from "@/config/site";
+import { Icon } from "astro-icon/components";
+
+const friends = (await getCollection("friends")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const emailContact = site.social.find((item) =>
+  item.href.startsWith("mailto:"),
+);
+
+const myInfo = {
+  name: site.friendCard.name,
+  description: site.friendCard.description,
+  link: (site.friendCard.link || Astro.site || Astro.url.origin).toString(),
+  avatar: site.friendCard.avatar || site.meta.logo,
+};
+
+const avatarUrl =
+  myInfo.avatar.startsWith("http://") || myInfo.avatar.startsWith("https://")
+    ? myInfo.avatar
+    : new URL(myInfo.avatar, myInfo.link).toString();
+---
+
+<Layout
+  title={site.labels.friendsTitle}
+  description={site.labels.friendsDescription}
+>
+  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-8 duration-700 md:p-16">
+    <section class="mb-24">
+      <header class="mb-12">
+        <h2 class="mb-4 text-3xl font-bold">{site.labels.friendsTitle}</h2>
+        <p class="mb-12 text-sm font-light text-muted-foreground italic">
+          {site.labels.friendsDescription}
+        </p>
+      </header>
+
+      <!-- 合作过的伙伴/团队 -->
+      <section class="mb-16">
+        <h3 class="text-xl font-bold mb-6">合作过的伙伴/团队</h3>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:code-tags" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                Deadliner 开发团队
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                移动应用开发团队
+              </span>
+            </div>
+          </a>
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:account-group" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                挑战杯队友
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                多模态 AI 面试评测系统团队
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 推荐工具 -->
+      <section class="mb-16">
+        <h3 class="text-xl font-bold mb-6">推荐工具</h3>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <a
+            href="https://www.feishu.cn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:message-text" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                飞书
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                高效协作工具，适合团队沟通和项目管理
+              </span>
+            </div>
+          </a>
+          <a
+            href="https://www.notion.so"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:notebook" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                Notion
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                全能 productivity 工具，适合笔记和知识库管理
+              </span>
+            </div>
+          </a>
+          <a
+            href="https://www.figma.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:vector-polygon" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                Figma
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                协作设计工具，适合UI/UX设计
+              </span>
+            </div>
+          </a>
+          <a
+            href="https://www.yiyaomofang.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+          >
+            <div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary">
+              <Icon name="mdi:medical-bag" class="w-6 h-6" />
+            </div>
+            <div class="flex flex-col">
+              <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                医药魔方
+              </span>
+              <span class="line-clamp-1 text-sm text-muted-foreground">
+                生物医药行业数据平台
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 社交媒体入口 -->
+      <section class="mb-16">
+        <h3 class="text-xl font-bold mb-6">社交媒体</h3>
+        <div class="flex flex-wrap gap-4">
+          {site.social.map((item) => (
+            <a
+              href={item.href}
+              class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-primary/30 transition-colors"
+              title={item.name}
+            >
+              <Icon name={item.icon} class="w-4 h-4 text-primary" />
+              <span class="text-sm font-medium">{item.name}</span>
+            </a>
+          ))}
+          <a
+            href="#"
+            class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-primary/30 transition-colors"
+            title="小红书"
+          >
+            <Icon name="mdi:book-open-variant" class="w-4 h-4 text-primary" />
+            <span class="text-sm font-medium">小红书</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-border/50 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:border-primary/30 transition-colors"
+            title="LinkedIn"
+          >
+            <Icon name="mdi:linkedin" class="w-4 h-4 text-primary" />
+            <span class="text-sm font-medium">LinkedIn</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 合作邀请 -->
+      <section class="mb-16 p-6 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm">
+        <h3 class="text-xl font-bold mb-4">合作邀请</h3>
+        <p class="text-muted-foreground mb-4">
+          如果你也在做有趣的产品/研究，欢迎联系我寻求合作！
+        </p>
+        <p class="text-sm text-muted-foreground">
+          请在下方留言或通过邮箱联系我，附上你的项目信息，我会尽快回复。
+        </p>
+      </section>
+
+      <!-- 友情链接 -->
+      <section class="mb-16">
+        <h3 class="text-xl font-bold mb-6">友情链接</h3>
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {friends.length === 0 ? (
+            <div class="col-span-full py-12 text-center rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm">
+              <p class="text-sm text-muted-foreground">暂无友情链接</p>
+            </div>
+          ) : (
+            friends.map((friend) => (
+              <a
+                href={friend.data.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group flex items-center gap-5 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-5 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:shadow-sm"
+              >
+                <Image
+                  src={friend.data.avatar}
+                  width={48}
+                  height={48}
+                  alt={friend.data.name}
+                  loading={"lazy"}
+                  class="rounded-xl bg-muted transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110"
+                />
+                <div class="flex flex-col">
+                  <span class="text-base font-bold text-foreground/90 group-hover:text-primary">
+                    {friend.data.name}
+                  </span>
+                  <span class="line-clamp-1 text-sm text-muted-foreground">
+                    {friend.data.description}
+                  </span>
+                </div>
+              </a>
+            ))
+          )}
+        </div>
+      </section>
+
+      <div class="mt-12 border-t border-border/40 pt-8">
+        <p class="mb-6 text-sm leading-relaxed font-light text-muted-foreground">
+          以下是我的网站信息。如果你也有项目或网站，欢迎随时联系我。
+          {
+            emailContact ? (
+              <>
+                {" "}
+                你也可以
+                <a
+                  href={emailContact.href}
+                  class="mx-1 border-b border-border pb-0.5 text-foreground/80 transition-colors hover:border-primary hover:text-primary"
+                >
+                  发送邮件
+                </a>
+                联系我。
+              </>
+            ) : null
+          }
+        </p>
+
+        <div class="rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-6">
+          <div class="mb-5 flex items-center gap-4">
+            <img
+              src={avatarUrl}
+              width="52"
+              height="52"
+              alt={myInfo.name}
+              loading="lazy"
+              class="rounded-xl bg-muted object-cover"
+            />
+            <div class="min-w-0">
+              <h3 class="text-base font-bold text-foreground/85">
+                {myInfo.name}
+              </h3>
+              <p class="text-sm text-muted-foreground">{myInfo.description}</p>
+            </div>
+          </div>
+
+          <div class="space-y-3 text-sm">
+            <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
+              <span class="w-18 shrink-0 text-muted-foreground">名称</span>
+              <span>{myInfo.name}</span>
+            </p>
+            <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
+              <span class="w-18 shrink-0 text-muted-foreground">链接</span>
+              <a
+                href={myInfo.link}
+                class="break-all text-foreground/80 transition-colors hover:text-primary"
+              >
+                {myInfo.link}
+              </a>
+            </p>
+            <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
+              <span class="w-18 shrink-0 text-muted-foreground">描述</span>
+              <span>{myInfo.description}</span>
+            </p>
+            <p class="flex flex-col gap-1 sm:flex-row sm:gap-3">
+              <span class="w-18 shrink-0 text-muted-foreground">头像</span>
+              <a
+                href={avatarUrl}
+                class="break-all text-foreground/80 transition-colors hover:text-primary"
+              >
+                {avatarUrl}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-border/40 pt-8">
+        <h3 class="mb-3 text-base font-bold text-foreground/85">留言</h3>
+        <p class="mb-6 text-sm font-light text-muted-foreground">
+          如果你想寻求合作或只是聊天，你可以在下方留言。
+        </p>
+
+        <Toast />
+        <Comments />
+      </div>
+    </section>
+  </div>
+</Layout>

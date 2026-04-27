@@ -1,0 +1,151 @@
+---
+import site from "@/config/site";
+import Layout from "@/layouts/Layout.astro";
+import { getEntry, render } from "astro:content";
+
+const about = await getEntry("pages", "about");
+const { Content } = await render(about!);
+---
+
+<Layout title={site.labels.aboutTitle} description={site.labels.aboutDescription}>
+  <div class="animate-in fade-in mx-auto max-w-2xl p-8 duration-700 md:p-16">
+    <div class="prose dark:prose-invert mb-16">
+      <Content />
+    </div>
+
+    <!-- 技能矩阵 -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6">技能矩阵</h2>
+      
+      <div class="space-y-6">
+        <!-- 数据分析 -->
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">数据分析</span>
+            <span class="text-xs text-muted-foreground">85%</span>
+          </div>
+          <div class="w-full bg-border rounded-full h-2">
+            <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">SQL</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">Python</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">R</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">Excel</span>
+          </div>
+        </div>
+        
+        <!-- 产品运营 -->
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">产品运营</span>
+            <span class="text-xs text-muted-foreground">90%</span>
+          </div>
+          <div class="w-full bg-border rounded-full h-2">
+            <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AB 测试</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户调研</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">增长策略</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">需求文档</span>
+          </div>
+        </div>
+        
+        <!-- 视觉设计 -->
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">视觉设计</span>
+            <span class="text-xs text-muted-foreground">75%</span>
+          </div>
+          <div class="w-full bg-border rounded-full h-2">
+            <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">PPT 高阶美化</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">海报设计</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">Figma</span>
+          </div>
+        </div>
+        
+        <!-- 办公协同 -->
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">办公协同</span>
+            <span class="text-xs text-muted-foreground">95%</span>
+          </div>
+          <div class="w-full bg-border rounded-full h-2">
+            <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+          </div>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">飞书</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">腾讯会议</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">LaTeX</span>
+            <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">PS / PR</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 交叉学科背景 -->
+    <section class="mb-16 p-6 rounded-2xl border border-border/50 bg-muted/30">
+      <h2 class="text-2xl font-bold mb-4">我的"交叉学科"背景</h2>
+      <p class="text-muted-foreground mb-4">经济管理 + 生物科学 + 辅修会计 + 产品运营</p>
+      <p class="text-lg font-medium">"懂商业逻辑，也懂技术语言；能做数据分析，也能做用户增长"</p>
+    </section>
+
+    <!-- 个人侧面 -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold mb-6">个人侧面</h2>
+      
+      <div class="space-y-6">
+        <!-- 兴趣标签 -->
+        <div>
+          <h3 class="text-sm font-medium mb-3">兴趣标签</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">工具控</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">数据可视化爱好者</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">产品设计</span>
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">科技前沿</span>
+          </div>
+        </div>
+        
+        <!-- 当前在读的书 -->
+        <div>
+          <h3 class="text-sm font-medium mb-3">当前关注</h3>
+          <ul class="text-sm space-y-1 text-muted-foreground">
+            <li>• 《精益数据分析》</li>
+            <li>• 《增长黑客》</li>
+            <li>• 人工智能在产品中的应用</li>
+            <li>• 生物医药行业趋势</li>
+          </ul>
+        </div>
+        
+        <!-- 联系方式 -->
+        <div>
+          <h3 class="text-sm font-medium mb-3">联系方式</h3>
+          <div class="flex flex-wrap gap-4">
+            {
+              site.social.map((item) => (
+                <a
+                  href={item.href}
+                  class="border-b border-border pb-0.5 text-sm text-muted-foreground hover:border-primary hover:text-primary"
+                  title={item.name}
+                >
+                  {item.name}
+                </a>
+              ))
+            }
+          </div>
+        </div>
+        
+        <!-- 下载简历 -->
+        <div class="mt-8">
+          <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary bg-primary text-white hover:bg-primary/90 transition-colors">
+            <span>下载 PDF 简历</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

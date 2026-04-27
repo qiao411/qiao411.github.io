@@ -1,0 +1,42 @@
+---
+import { Icon } from "astro-icon/components";
+import site from "@/config/site";
+---
+
+<section class="mb-16 space-y-6">
+  <h2 class="text-3xl md:text-4xl font-bold tracking-tight">{site.hero.greeting}</h2>
+  <p
+    class="text-lg md:text-xl leading-relaxed font-light text-muted-foreground"
+    set:html={site.hero.description}
+  />
+  {site.hero.subdescription && (
+    <p
+      class="text-md md:text-lg leading-relaxed font-light text-muted-foreground"
+    >{site.hero.subdescription}</p>
+  )}
+</section>
+
+{
+  site.hero.cards.length > 0 && (
+    <div class="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
+      {site.hero.cards.map((card, i) => (
+        <div
+          class="flex gap-4 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:-translate-y-1 shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-4"
+          style={`animation-delay: ${i * 100}ms`}
+        >
+          <div class="text-2xl text-primary transition-transform duration-300 hover:scale-110 mt-1">
+            <Icon name={card.icon} />
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">
+              {card.label}
+            </span>
+            <span class="text-base font-medium text-foreground/90">{card.value}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+

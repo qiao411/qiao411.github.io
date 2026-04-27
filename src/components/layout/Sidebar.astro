@@ -1,0 +1,40 @@
+---
+import site from "@/config/site";
+import Nav from "./Nav.astro";
+import ThemeToggle from "./ThemeToggle.astro";
+import { Icon } from "astro-icon/components";
+import Brand from "./Brand.astro";
+import SearchModal from "../blocks/SearchModal.astro";
+import SearchBox from "./SearchBox.astro";
+---
+
+<aside
+  class="flex w-full flex-col border-b border-border bg-muted/20 p-6 md:w-[30%] lg:w-[28%] md:border-r md:border-b-0 md:p-8 lg:p-10 transition-all duration-300"
+  data-pagefind-ignore="all"
+>
+  <Brand />
+
+  <SearchBox class="mt-6" />
+
+  <Nav class="mt-8" />
+
+  <div class="mt-8 flex items-center justify-between md:mt-12 lg:mt-14">
+    <div class="flex gap-4 text-muted-foreground/60">
+      {
+        site.social.map((item) => (
+          <a
+            href={item.href}
+            class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
+            aria-label={item.name}
+          >
+            <Icon name={item.icon} size={24} />
+          </a>
+        ))
+      }
+    </div>
+
+    <ThemeToggle />
+  </div>
+
+  <SearchModal />
+</aside>
