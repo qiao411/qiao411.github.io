@@ -3,6 +3,7 @@
 ## 问题分析
 
 系统环境变量中存在 Git 路径 `C:\Program Files\Git\cmd`，但实际文件不存在。这可能是因为：
+
 1. Git 曾经安装过，但后来被卸载了
 2. Git 安装路径发生了变化
 3. 环境变量没有更新
@@ -11,13 +12,14 @@
 
 ### 步骤 1: 重新安装 Git
 
-1. 访问 Git 官方网站：https://git-scm.com/downloads
-2. 点击 "Windows" 下载按钮
-3. 下载完成后，运行安装程序
-4. 按照安装向导的提示，点击 "Next" 直到完成
-5. 在安装选项中，确保勾选 "Git Bash Here" 和 "Git GUI Here"
-6. 在 "Adjusting your PATH environment" 步骤中，选择 "Git from the command line and also from 3rd-party software"
-7. 完成安装后，重启电脑以确保环境变量生效
+1. 访问 Git 官方网站：
+2. 
+3. 点击 "Windows" 下载按钮
+4. 下载完成后，运行安装程序
+5. 按照安装向导的提示，点击 "Next" 直到完成
+6. 在安装选项中，确保勾选 "Git Bash Here" 和 "Git GUI Here"
+7. 在 "Adjusting your PATH environment" 步骤中，选择 "Git from the command line and also from 3rd-party software"
+8. 完成安装后，重启电脑以确保环境变量生效
 
 ### 步骤 2: 验证 Git 安装
 
