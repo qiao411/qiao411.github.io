@@ -1,8 +1,8 @@
 ---
 title: 你好世界 - 欢迎来到我的个人网站
 createdAt: 2026-01-01
-category: 生活
-tags: [个人, 网站]
+category: life
+tags: [astro, tailwindcss]
 summary: 欢迎来到我的个人网站，这是一个记录生活点滴的地方。
 ---
 

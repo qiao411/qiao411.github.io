@@ -55,11 +55,13 @@ export default defineConfig({
     },
   },
 
-  fonts: [
-    {
-      provider: fontProviders.fontsource(),
-      name: "Space Grotesk",
-      cssVariable: "--font-display",
-    },
-  ],
+  experimental: {
+    fonts: [
+      {
+        provider: fontProviders.fontsource(),
+        name: "Space Grotesk",
+        cssVariable: "--font-display",
+      },
+    ],
+  },
 });

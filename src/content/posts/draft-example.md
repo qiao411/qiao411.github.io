@@ -1,7 +1,7 @@
 ---
 title: 草稿文章示例
 createdAt: 2026-03-03
-category: 技术
+category: technology
 tags: [astro]
 summary: 这是一篇草稿文章，不会出现在生产环境构建中。
 draft: true

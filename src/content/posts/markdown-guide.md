@@ -1,8 +1,8 @@
 ---
 title: Markdown 指南
 createdAt: 2026-01-02
-category: 技术
-tags: [markdown, 教程]
+category: technology
+tags: [markdown, tutorial]
 summary: 本主题支持的 Markdown 功能指南。
 ---
 
