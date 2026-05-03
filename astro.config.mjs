@@ -10,7 +10,7 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   // IMPORTANT: Change this to your deployed site URL
-  site: "https://your-domain.com",
+  site: "https://qiao411.github.io",
 
   vite: {
     plugins: [tailwindcss()],
