@@ -29,9 +29,14 @@ const sortedProjects = [...projects].sort((a, b) => {
       {/* Deadliner项目 - 占据两列 */}
       {sortedProjects.length > 0 && (
         <div class="col-span-full">
-          <div class="group flex h-full flex-col rounded-2xl border border-border/50 bg-muted/20 p-6 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg">
+          <div
+            class="deadliner-card group relative h-full cursor-pointer rounded-2xl border border-border/50 bg-muted/20 p-6 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg"
+            data-detail-url="/deadliner"
+            data-homepage={sortedProjects[0].data.links?.homepage}
+            data-github={sortedProjects[0].data.links?.github}
+          >
             <div class="mb-4 flex items-start justify-between">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 cursor-pointer hover:rotate-12">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25">
                 {sortedProjects[0].data.image ? (
                   <Image
                     src={sortedProjects[0].data.image}
@@ -45,9 +50,15 @@ const sortedProjects = [...projects].sort((a, b) => {
                   <span class="text-lg">✦</span>
                 )}
               </div>
-              <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-widest text-primary uppercase">
-                {sortedProjects[0].data.status}
-              </span>
+              <div class="flex items-center gap-3">
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-widest text-primary uppercase">
+                  {sortedProjects[0].data.status}
+                </span>
+                <span class="inline-flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+                  查看详情
+                  <Icon name="mdi:arrow-right" class="h-3 w-3" />
+                </span>
+              </div>
             </div>
             <h3 class="mb-3 text-xl font-bold">
               {sortedProjects[0].data.title}
@@ -63,13 +74,14 @@ const sortedProjects = [...projects].sort((a, b) => {
               ))}
             </div>
             {sortedProjects[0].data.links && (
-              <div class="flex gap-3">
+              <div class="flex gap-3 card-links">
                 {sortedProjects[0].data.links.homepage && (
                   <a
                     href={sortedProjects[0].data.links.homepage}
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
+                    onclick="event.stopPropagation()"
                   >
                     <Icon name="mdi:web" class="h-4 w-4" />
                     Website
@@ -81,20 +93,10 @@ const sortedProjects = [...projects].sort((a, b) => {
                     target="_blank"
                     rel="noopener noreferrer"
                     class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
+                    onclick="event.stopPropagation()"
                   >
                     <Icon name="mdi:github" class="h-4 w-4" />
                     Source
-                  </a>
-                )}
-                {sortedProjects[0].data.links.demo && (
-                  <a
-                    href={sortedProjects[0].data.links.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                  >
-                    <Icon name="mdi:open-in-new" class="h-4 w-4" />
-                    Demo
                   </a>
                 )}
               </div>
@@ -184,3 +186,21 @@ const sortedProjects = [...projects].sort((a, b) => {
     </div>
   </div>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const deadlinerCard = document.querySelector('.deadliner-card');
+    if (deadlinerCard) {
+      deadlinerCard.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        if (target.closest('.card-links')) {
+          return;
+        }
+        const detailUrl = deadlinerCard.getAttribute('data-detail-url');
+        if (detailUrl) {
+          window.location.href = detailUrl;
+        }
+      });
+    }
+  });
+</script>

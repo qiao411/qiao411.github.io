@@ -1,0 +1,323 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import site from "@/config/site";
+import { Icon } from "astro-icon/components";
+
+const deadlinerData = {
+  stats: {
+    totalUsers: "400+",
+    activeUsers: "100+",
+    retention: "30%",
+    dailyActive: "50%",
+  },
+  downloads: {
+    labels: ["2024-01", "2024-02", "2024-03", "2024-04", "2024-05", "2024-06", "2024-07", "2024-08", "2024-09", "2024-10", "2024-11", "2024-12"],
+    android: [120, 185, 210, 280, 320, 385, 450, 520, 580, 640, 720, 850],
+    ios: [80, 120, 150, 190, 230, 280, 340, 410, 480, 550, 630, 720],
+    total: [200, 305, 360, 470, 550, 665, 790, 930, 1060, 1190, 1350, 1570],
+  },
+  screenshots: [
+    { id: 1, title: "任务列表", description: "清晰的待办任务管理界面" },
+    { id: 2, title: "日历视图", description: "直观的时间规划展示" },
+    { id: 3, title: "统计面板", description: "个人效率数据可视化" },
+    { id: 4, title: "提醒设置", description: "灵活的提醒时间配置" },
+  ],
+  features: [
+    { icon: "mdi:format-list-checkbox", title: "智能任务管理", description: "支持子任务、优先级、标签分类" },
+    { icon: "mdi:calendar-clock", title: "日历整合", description: "与系统日历同步，支持多平台" },
+    { icon: "mdi:chart-line", title: "数据统计", description: "详细的工作效率分析报告" },
+    { icon: "mdi:bell-ring", title: "智能提醒", description: "可自定义的提醒时间和频率" },
+    { icon: "mdi:sync", title: "跨平台同步", description: "iOS、Android多端数据互通" },
+    { icon: "mdi:palette", title: "主题定制", description: "深色/浅色模式随心切换" },
+  ],
+};
+---
+
+<Layout title="Deadliner - 项目详情" description="Deadliner 任务管理 APP 详细介绍">
+  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-4xl p-8 md:p-12 duration-700">
+    <header class="mb-12">
+      <a href="/projects" class="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+        <Icon name="mdi:arrow-left" class="h-4 w-4" />
+        返回项目列表
+      </a>
+      <div class="flex items-start gap-6">
+        <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-primary/15 text-primary shadow-lg">
+          <span class="text-3xl">⏰</span>
+        </div>
+        <div>
+          <div class="mb-2 flex items-center gap-3">
+            <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Deadliner</h1>
+            <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-xs font-bold tracking-widest text-primary uppercase">
+              进行中
+            </span>
+          </div>
+          <p class="text-muted-foreground">帮助用户高效管理任务和时间的移动应用</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:chart-line" class="h-5 w-5 text-primary" />
+        核心数据
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
+          <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.totalUsers}</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">累计用户</div>
+        </div>
+        <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
+          <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.activeUsers}</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">核心测试群</div>
+        </div>
+        <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
+          <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.retention}</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">用户留存提升</div>
+        </div>
+        <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
+          <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.dailyActive}</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">日活增长</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:download" class="h-5 w-5 text-primary" />
+        下载量趋势
+      </h2>
+      <div class="rounded-2xl border border-border/50 bg-card p-6">
+        <div class="mb-4 flex items-center justify-center gap-6">
+          <div class="flex items-center gap-2">
+            <div class="h-3 w-3 rounded-full bg-[#3b82f6]"></div>
+            <span class="text-xs text-muted-foreground">Android</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="h-3 w-3 rounded-full bg-[#ec4899]"></div>
+            <span class="text-xs text-muted-foreground">iOS</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="h-3 w-3 rounded-full bg-[#10b981]"></div>
+            <span class="text-xs text-muted-foreground">总计</span>
+          </div>
+        </div>
+        <canvas id="downloadChart" height="300"></canvas>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:cellphone" class="h-5 w-5 text-primary" />
+        应用截图
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {deadlinerData.screenshots.map((screenshot, index) => (
+          <div class="group relative aspect-[9/16] overflow-hidden rounded-xl border border-border/50 bg-muted/20 transition-all duration-300 hover:border-primary/30 hover:shadow-lg cursor-pointer">
+            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
+              <span class="text-4xl opacity-50">{index + 1}</span>
+            </div>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <h3 class="text-sm font-bold text-white">{screenshot.title}</h3>
+              <p class="text-xs text-white/70">{screenshot.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:star" class="h-5 w-5 text-primary" />
+        核心功能
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 md:grid-cols-3 gap-4">
+        {deadlinerData.features.map((feature) => (
+          <div class="rounded-xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
+            <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/15 text-primary">
+              <Icon name={feature.icon} class="h-5 w-5" />
+            </div>
+            <h3 class="mb-1 text-sm font-bold">{feature.title}</h3>
+            <p class="text-xs text-muted-foreground leading-relaxed">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:palette" class="h-5 w-5 text-primary" />
+        软件图标
+      </h2>
+      <div class="rounded-2xl border border-border/50 bg-card p-8 flex flex-col items-center justify-center">
+        <div class="mb-6 flex h-32 w-32 items-center justify-center rounded-3xl bg-gradient-to-br from-primary/20 via-primary/10 to-primary/5 shadow-xl">
+          <span class="text-6xl">⏰</span>
+        </div>
+        <div class="text-center">
+          <h3 class="text-lg font-bold mb-1">Deadliner App Icon</h3>
+          <p class="text-sm text-muted-foreground">iOS & Android 应用图标</p>
+        </div>
+        <div class="mt-6 flex gap-4">
+          <div class="flex flex-col items-center gap-2">
+            <div class="h-16 w-16 rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 shadow-md flex items-center justify-center">
+              <span class="text-2xl">⏰</span>
+            </div>
+            <span class="text-xs text-muted-foreground">192×192</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="h-12 w-12 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 shadow-md flex items-center justify-center">
+              <span class="text-xl">⏰</span>
+            </div>
+            <span class="text-xs text-muted-foreground">128×128</span>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 shadow-md flex items-center justify-center">
+              <span class="text-base">⏰</span>
+            </div>
+            <span class="text-xs text-muted-foreground">64×64</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:video" class="h-5 w-5 text-primary" />
+        功能演示
+      </h2>
+      <div class="rounded-2xl border border-border/50 bg-card p-6">
+        <div class="aspect-video rounded-xl bg-muted/20 flex items-center justify-center">
+          <div class="text-center">
+            <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/15 text-primary mx-auto">
+              <Icon name="mdi:play-circle" class="h-8 w-8" />
+            </div>
+            <h3 class="text-lg font-bold mb-2">功能演示视频</h3>
+            <p class="text-sm text-muted-foreground">点击播放 APP 完整功能演示</p>
+            <p class="text-xs text-muted-foreground mt-2">视频待添加</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:code-tags" class="h-5 w-5 text-primary" />
+        技术栈
+      </h2>
+      <div class="flex flex-wrap gap-3">
+        {["SwiftUI", "Compose", "ArkUI", "Firebase", "Figma"].map((tech) => (
+          <span class="rounded-lg border border-border/50 bg-muted/20 px-4 py-2 font-mono text-sm text-primary/70 hover:border-primary/30 hover:bg-muted/30 transition-all">
+            {tech}
+          </span>
+        ))}
+      </div>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="mb-6 text-xl font-bold tracking-tight flex items-center gap-2">
+        <Icon name="mdi:link" class="h-5 w-5 text-primary" />
+        相关链接
+      </h2>
+      <div class="flex flex-wrap gap-4">
+        <a
+          href="https://deadliner.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-6 py-3 font-medium hover:border-primary/40 hover:bg-muted/30 transition-all"
+        >
+          <Icon name="mdi:web" class="h-5 w-5" />
+          访问官网
+        </a>
+        <a
+          href="https://github.com/your-username/deadliner"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-6 py-3 font-medium hover:border-primary/40 hover:bg-muted/30 transition-all"
+        >
+          <Icon name="mdi:github" class="h-5 w-5" />
+          GitHub
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const ctx = document.getElementById('downloadChart') as HTMLCanvasElement;
+    if (ctx && typeof window !== 'undefined' && (window as any).Chart) {
+      new (window as any).Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
+          datasets: [
+            {
+              label: 'Android',
+              data: [120, 185, 210, 280, 320, 385, 450, 520, 580, 640, 720, 850],
+              borderColor: '#3b82f6',
+              backgroundColor: 'rgba(59, 130, 246, 0.1)',
+              fill: true,
+              tension: 0.4,
+            },
+            {
+              label: 'iOS',
+              data: [80, 120, 150, 190, 230, 280, 340, 410, 480, 550, 630, 720],
+              borderColor: '#ec4899',
+              backgroundColor: 'rgba(236, 72, 153, 0.1)',
+              fill: true,
+              tension: 0.4,
+            },
+            {
+              label: '总计',
+              data: [200, 305, 360, 470, 550, 665, 790, 930, 1060, 1190, 1350, 1570],
+              borderColor: '#10b981',
+              backgroundColor: 'rgba(16, 185, 129, 0.1)',
+              fill: true,
+              tension: 0.4,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              mode: 'index',
+              intersect: false,
+              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              padding: 12,
+              cornerRadius: 8,
+            },
+          },
+          scales: {
+            x: {
+              grid: {
+                display: false,
+              },
+              ticks: {
+                color: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+            y: {
+              beginAtZero: true,
+              grid: {
+                color: 'rgba(0, 0, 0, 0.05)',
+              },
+              ticks: {
+                color: 'rgba(0, 0, 0, 0.5)',
+              },
+            },
+          },
+          interaction: {
+            mode: 'nearest',
+            axis: 'x',
+            intersect: false,
+          },
+        },
+      });
+    }
+  });
+</script>
