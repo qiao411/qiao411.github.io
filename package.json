@@ -29,7 +29,11 @@
     "pagefind": "^1.4.0",
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.7.2"
+    "prettier-plugin-tailwindcss": "0.7.2",
+    "vite": "6.3.5"
+  },
+  "overrides": {
+    "vite": "6.3.5"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
