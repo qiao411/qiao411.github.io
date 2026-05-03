@@ -11,6 +11,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   // IMPORTANT: Change this to your deployed site URL
   site: "https://qiao411.github.io",
+  base: "/",
 
   vite: {
     plugins: [tailwindcss()],
