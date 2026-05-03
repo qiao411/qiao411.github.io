@@ -36,7 +36,12 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          echo "=== Dist directory contents ==="
+          ls -la dist/
+          echo "=== HTML files ==="
+          find dist -name "*.html" -type f 2>/dev/null || echo "No HTML files found"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
