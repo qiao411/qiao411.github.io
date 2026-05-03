@@ -37,6 +37,7 @@ jobs:
 
       - name: Build
         run: |
+          export VITE_USE_ROLLDOWN=false
           npm run build
           echo "=== Dist directory contents ==="
           ls -la dist/
