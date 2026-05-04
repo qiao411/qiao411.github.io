@@ -15,7 +15,7 @@ const sortedProjects = [...projects].sort((a, b) => {
 ---
 
 <Layout title={site.labels.projectsTitle} description={site.labels.projectsDescription}>
-  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-8 duration-700 md:p-16">
+  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-4 sm:p-6 md:p-16">
     <header class="mb-16">
       <h2 class="mb-4 text-3xl font-bold tracking-tight">
         {site.labels.projectsTitle}
@@ -36,7 +36,7 @@ const sortedProjects = [...projects].sort((a, b) => {
             data-github={sortedProjects[0].data.links?.github}
           >
             <div class="mb-4 flex items-start justify-between">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12">
                 {sortedProjects[0].data.image ? (
                   <Image
                     src={sortedProjects[0].data.image}
@@ -44,19 +44,23 @@ const sortedProjects = [...projects].sort((a, b) => {
                     height={40}
                     alt={`${sortedProjects[0].data.title}'s logo'`}
                     loading={"lazy"}
-                    class="transition-all duration-500 group-hover:rotate-12"
+                    class="transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
                   />
                 ) : (
-                  <span class="text-lg">✦</span>
+                  <span class="text-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">✦</span>
                 )}
               </div>
-              <div class="flex items-center gap-3">
-                <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-widest text-primary uppercase">
-                  {sortedProjects[0].data.status}
-                </span>
-                <span class="inline-flex items-center gap-1 text-xs text-primary opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="relative flex items-center">
+                <a
+                  href="/deadliner"
+                  class="absolute right-0 inline-flex items-center gap-1 text-xs text-primary opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hover:text-primary/80"
+                  onclick="event.stopPropagation()"
+                >
                   查看详情
                   <Icon name="mdi:arrow-right" class="h-3 w-3" />
+                </a>
+                <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-widest text-primary uppercase transition-all duration-300 group-hover:-translate-x-16 group-hover:mr-2">
+                  {sortedProjects[0].data.status}
                 </span>
               </div>
             </div>
@@ -111,7 +115,7 @@ const sortedProjects = [...projects].sort((a, b) => {
           {sortedProjects.slice(1).map((project) => (
             <div class="group flex h-full flex-col rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg">
               <div class="mb-4 flex items-start justify-between">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 cursor-pointer hover:rotate-12">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12">
                   {project.data.image ? (
                     <Image
                       src={project.data.image}
@@ -119,10 +123,10 @@ const sortedProjects = [...projects].sort((a, b) => {
                       height={28}
                       alt={`${project.data.title}'s logo'`}
                       loading={"lazy"}
-                      class="transition-all duration-500 group-hover:rotate-12"
+                      class="transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
                     />
                   ) : (
-                    <span class="text-sm">✦</span>
+                    <span class="text-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">✦</span>
                   )}
                 </div>
                 <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-primary uppercase">
@@ -186,21 +190,3 @@ const sortedProjects = [...projects].sort((a, b) => {
     </div>
   </div>
 </Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const deadlinerCard = document.querySelector('.deadliner-card');
-    if (deadlinerCard) {
-      deadlinerCard.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement;
-        if (target.closest('.card-links')) {
-          return;
-        }
-        const detailUrl = deadlinerCard.getAttribute('data-detail-url');
-        if (detailUrl) {
-          window.location.href = detailUrl;
-        }
-      });
-    }
-  });
-</script>
