@@ -52,7 +52,7 @@ const site = {
       '<span class="font-medium text-foreground">南京大学</span> · <span class="font-medium text-foreground">经济管理</span> × <span class="font-medium text-foreground">生物科学</span> | <span class="font-medium text-foreground">产品运营</span> & <span class="font-medium text-foreground">数据驱动</span>',
     subdescription: '在理性思维和感性表达间，做高效准确的产品决策，致力于创造有价值的产品体验',
     cards: [
-      { icon: "mdi:chart-line", label: "最新动态", value: "Deadliner 累计用户 400+，正在迭代 AI 功能" },
+      { icon: "mdi:chart-line", label: "最新动态", value: "Deadliner 累计用户 3000+，Lifi AI 功能已上架iOS" },
       { icon: "mdi:trophy", label: "高光成就", value: "挑战杯全国三等奖 & 投资实习经历" },
       { icon: "mdi:account-clock", label: "当前状态", value: "大三在读，寻找产品运营或商业分析实习" },
     ],
