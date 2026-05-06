@@ -36,15 +36,15 @@ const sortedProjects = [...projects].sort((a, b) => {
             data-github={sortedProjects[0].data.links?.github}
           >
             <div class="mb-4 flex items-start justify-between">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12 overflow-hidden">
                 {sortedProjects[0].data.image ? (
-                  <Image
+                  <img
                     src={sortedProjects[0].data.image}
                     width={40}
                     height={40}
                     alt={`${sortedProjects[0].data.title}'s logo'`}
                     loading={"lazy"}
-                    class="transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
+                    class="w-full h-full object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
                   />
                 ) : (
                   <span class="text-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">✦</span>

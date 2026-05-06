@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="no-scrollbar flex flex-1 flex-wrap gap-4 overflow-x-auto max-md:justify-between md:flex-col md:gap-4 md:overflow-x-visible"
+  class="hidden md:flex flex-col gap-2"
 >
   {
     site.navigation.map((item) => {

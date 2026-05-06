@@ -4,118 +4,115 @@ import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title="{site.labels.experienceTitle}" description="{site.labels.experienceDescription}">
-  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-4 sm:p-6 md:p-16">
-    <h1 class="text-3xl font-bold mb-12">{site.labels.experienceTitle}</h1>
+  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-4xl p-4 sm:p-6 md:p-16">
+    <h1 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">{site.labels.experienceTitle}</h1>
     
-    <!-- 时间轴 -->
-    <div class="relative pl-10 md:pl-0">
-      <!-- 时间轴线 -->
-      <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-border/50 md:left-1/2 md:transform md:-translate-x-1/2"></div>
+    <div class="relative">
+      <div class="absolute left-1/2 top-0 bottom-0 w-px bg-border"></div>
       
-      <!-- 时间轴项目 -->
-      <div class="space-y-8 md:space-y-12">
+      <div class="space-y-12">
         <!-- 投资实习 -->
-        <div class="relative flex flex-col md:flex-row">
-          <div class="flex flex-col md:w-1/2 md:pr-12 md:text-right">
-            <span class="text-sm font-bold text-primary mb-1">2025.11-2026.02</span>
-            <h3 class="text-lg font-bold mb-2">南京动平衡创业投资管理有限公司</h3>
-            <p class="text-sm text-muted-foreground mb-3">生物医药组投资实习生</p>
-            <ul class="text-sm space-y-1 text-muted-foreground">
+        <div class="relative flex gap-8 md:gap-12">
+          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+          <div class="flex-1 text-right">
+            <span class="text-xs sm:text-sm font-bold text-primary">2025.11-2026.02</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">南京动平衡创业投资管理有限公司</h3>
+            <p class="text-sm text-muted-foreground mt-1">生物医药组投资实习生</p>
+            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
               <li>• 财务模型测算、医药魔方平台数据分析</li>
               <li>• 参与尽调会议并整理会议纪要</li>
               <li>• 进行行业研究和商业判断</li>
             </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-start md:justify-end">
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">行业研究</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">数据分析</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业判断</span>
+            <div class="mt-3 flex flex-wrap gap-2 justify-end">
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">行业研究</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">数据分析</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业判断</span>
             </div>
           </div>
-          <div class="absolute left-4 top-4 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-1/2 md:transform md:-translate-x-1/2"></div>
-          <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0"></div>
+          <div class="hidden md:block flex-1"></div>
         </div>
         
         <!-- 挑战杯 -->
-        <div class="relative flex flex-col md:flex-row">
-          <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-          <div class="absolute left-4 top-4 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-1/2 md:transform md:-translate-x-1/2"></div>
-          <div class="flex flex-col md:w-1/2 md:pl-12 mt-8 md:mt-0">
-            <span class="text-sm font-bold text-primary mb-1">2025.06-2025.12</span>
-            <h3 class="text-lg font-bold mb-2">挑战杯 · 多模态 AI 面试评测系统</h3>
-            <p class="text-sm text-muted-foreground mb-3">全国三等奖</p>
-            <ul class="text-sm space-y-1 text-muted-foreground">
+        <div class="relative flex gap-8 md:gap-12">
+          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+          <div class="hidden md:block flex-1"></div>
+          <div class="flex-1">
+            <span class="text-xs sm:text-sm font-bold text-primary">2025.06-2025.12</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">挑战杯 · 多模态 AI 面试评测系统</h3>
+            <p class="text-sm text-muted-foreground mt-1">全国三等奖</p>
+            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
               <li>• 数据负责人 + 产品运营 + 视觉设计</li>
               <li>• 从 0 到 1 搭建面试题库</li>
               <li>• 主导 AB 轮测试和用户反馈收集</li>
             </ul>
             <div class="mt-3 flex flex-wrap gap-2">
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AI 技术</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品运营</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">视觉设计</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AI 技术</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品运营</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">视觉设计</span>
             </div>
           </div>
         </div>
         
         <!-- 天池杯 -->
-        <div class="relative flex flex-col md:flex-row">
-          <div class="flex flex-col md:w-1/2 md:pr-12 md:text-right">
-            <span class="text-sm font-bold text-primary mb-1">2025.05</span>
-            <h3 class="text-lg font-bold mb-2">南京大学"天池杯" · AI 多模态信息整合工具</h3>
-            <p class="text-sm text-muted-foreground mb-3">校级奖项</p>
-            <ul class="text-sm space-y-1 text-muted-foreground">
+        <div class="relative flex gap-8 md:gap-12">
+          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+          <div class="flex-1 text-right">
+            <span class="text-xs sm:text-sm font-bold text-primary">2025.05</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">南京大学"天池杯" · AI 多模态信息整合工具</h3>
+            <p class="text-sm text-muted-foreground mt-1">校级奖项</p>
+            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
               <li>• 完成 500+ 用户调研</li>
               <li>• 构建详细的用户画像</li>
               <li>• 撰写商业计划书并参与路演</li>
             </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-start md:justify-end">
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户调研</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业计划</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">路演</span>
+            <div class="mt-3 flex flex-wrap gap-2 justify-end">
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户调研</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业计划</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">路演</span>
             </div>
           </div>
-          <div class="absolute left-4 top-4 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-1/2 md:transform md:-translate-x-1/2"></div>
-          <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0"></div>
+          <div class="hidden md:block flex-1"></div>
         </div>
         
         <!-- Deadliner -->
-        <div class="relative flex flex-col md:flex-row">
-          <div class="md:w-1/2 md:pr-12 md:text-right"></div>
-          <div class="absolute left-4 top-4 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-1/2 md:transform md:-translate-x-1/2"></div>
-          <div class="flex flex-col md:w-1/2 md:pl-12 mt-8 md:mt-0">
-            <span class="text-sm font-bold text-primary mb-1">2025.02-至今</span>
-            <h3 class="text-lg font-bold mb-2">Deadliner 任务管理软件</h3>
-            <p class="text-sm text-muted-foreground mb-3">联合创始人</p>
-            <ul class="text-sm space-y-1 text-muted-foreground">
+        <div class="relative flex gap-8 md:gap-12">
+          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+          <div class="hidden md:block flex-1"></div>
+          <div class="flex-1">
+            <span class="text-xs sm:text-sm font-bold text-primary">2025.02-至今</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">Deadliner 任务管理软件</h3>
+            <p class="text-sm text-muted-foreground mt-1">联合创始人</p>
+            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
               <li>• 主导产品从 0 到 1 的规划和设计</li>
               <li>• 负责冷启动增长和用户裂变</li>
               <li>• 进行 AB 测试和数据分析</li>
             </ul>
             <div class="mt-3 flex flex-wrap gap-2">
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品设计</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户增长</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AB 测试</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品设计</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户增长</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AB 测试</span>
             </div>
           </div>
         </div>
         
         <!-- 校园 Leadership -->
-        <div class="relative flex flex-col md:flex-row">
-          <div class="flex flex-col md:w-1/2 md:pr-12 md:text-right">
-            <span class="text-sm font-bold text-primary mb-1">2023.09-至今</span>
-            <h3 class="text-lg font-bold mb-2">校园 Leadership</h3>
-            <p class="text-sm text-muted-foreground mb-3">团支部书记 / 学生会干部</p>
-            <ul class="text-sm space-y-1 text-muted-foreground">
+        <div class="relative flex gap-8 md:gap-12">
+          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+          <div class="flex-1 text-right">
+            <span class="text-xs sm:text-sm font-bold text-primary">2023.09-至今</span>
+            <h3 class="text-lg sm:text-xl font-bold mt-1">校园 Leadership</h3>
+            <p class="text-sm text-muted-foreground mt-1">团支部书记 / 学生会干部</p>
+            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
               <li>• 团支部书记：组织 1200+ 人次活动，获优秀团支书称号</li>
               <li>• 商学院学生会学术科创部：对接 200+ 团队，负责公众号运营</li>
             </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-start md:justify-end">
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">领导力</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">活动组织</span>
-              <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">公众号运营</span>
+            <div class="mt-3 flex flex-wrap gap-2 justify-end">
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">领导力</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">活动组织</span>
+              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">公众号运营</span>
             </div>
           </div>
-          <div class="absolute left-4 top-4 w-4 h-4 rounded-full bg-primary border-4 border-background md:left-1/2 md:transform md:-translate-x-1/2"></div>
-          <div class="md:w-1/2 md:pl-12 mt-8 md:mt-0"></div>
+          <div class="hidden md:block flex-1"></div>
         </div>
       </div>
     </div>
