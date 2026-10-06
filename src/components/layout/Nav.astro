@@ -6,7 +6,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav
-  class="hidden md:flex md:flex-1 flex-col justify-evenly"
+  class="hidden md:flex md:flex-1 flex-col justify-start gap-3 pt-2"
 >
   {
     site.navigation.map((item) => {
@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
         <a
           href={item.href}
           class:list={[
-            "group flex min-w-24 items-center justify-center rounded-2xl border border-transparent px-4 py-3 transition-all md:min-w-0 md:justify-between md:py-4",
+            "group flex min-h-16 min-w-24 items-center justify-center rounded-xl border border-transparent px-4 py-3 transition-all md:min-w-0 md:justify-between",
             isActive
               ? "border-primary/20 bg-primary/10 md:hover:border-primary/20 md:hover:bg-primary/15"
               : "hover:bg-muted/50",

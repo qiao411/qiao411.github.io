@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 ---
 
 <div
-  class="mb-6 flex items-start gap-4 md:mb-10 md:flex-col md:items-start md:gap-0"
+  class="mb-6 flex items-start gap-4 md:mb-8 md:flex-col md:items-start md:gap-0"
 >
   <div
     class="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-lg font-bold text-primary-foreground overflow-hidden md:h-16 md:w-16"
@@ -18,17 +18,12 @@ import { Image } from "astro:assets";
       class="rounded-full"
     />
   </div>
-  <div class="mt-2 md:mt-8">
+  <div class="mt-2 md:mt-6">
     <h1
       data-pagefind-ignore
       class="text-lg font-bold tracking-tight text-foreground md:text-xl"
     >
       {site.meta.title}
     </h1>
-    <p
-      class="mt-2 hidden text-xs text-muted-foreground/70 md:block"
-    >
-      {site.meta.description}
-    </p>
   </div>
 </div>
