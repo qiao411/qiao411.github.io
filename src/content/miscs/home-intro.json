@@ -1,0 +1,30 @@
+[
+  {
+    "title": "关于我",
+    "icon": "mdi:account-outline",
+    "sentences": [
+      "在南京大学，探索经济管理与生物科学。"
+    ]
+  },
+  {
+    "title": "我喜欢",
+    "icon": "mdi:heart-outline",
+    "sentences": [
+      "喜欢发现真实需求，也喜欢把想法讲清楚。"
+    ]
+  },
+  {
+    "title": "我在做",
+    "icon": "mdi:lightning-bolt-outline",
+    "sentences": [
+      "正在探索产品运营与数据分析。"
+    ]
+  },
+  {
+    "title": "待开启",
+    "icon": "mdi:sparkles",
+    "sentences": [
+      "期待和有趣的人一起开启新项目。"
+    ]
+  }
+]

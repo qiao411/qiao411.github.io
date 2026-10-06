@@ -1,42 +1,44 @@
 ---
 import { Icon } from "astro-icon/components";
 import site from "@/config/site";
+import intro from "@/content/miscs/home-intro.json";
 ---
 
-<section class="mb-10 sm:mb-16 space-y-4 sm:space-y-6">
-  <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">{site.hero.greeting}</h2>
-  <p
-    class="text-base sm:text-lg md:text-xl leading-relaxed font-light text-muted-foreground"
-    set:html={site.hero.description}
-  />
-  {site.hero.subdescription && (
-    <p
-      class="text-sm sm:text-md md:text-lg leading-relaxed font-light text-muted-foreground"
-    >{site.hero.subdescription}</p>
-  )}
+<section class="mb-12 sm:mb-16" aria-label="首页介绍">
+  <div class="space-y-4 sm:space-y-6">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">{site.hero.greeting}</h2>
+    <p class="text-base sm:text-lg md:text-xl leading-relaxed font-light text-muted-foreground">
+      {site.hero.description}
+    </p>
+  </div>
+
+  <div class="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 sm:mt-10">
+    {intro.map((item) => (
+      <section class="border-t border-border/60 pt-4">
+        <h3 class="mb-2 flex items-center gap-2 text-sm font-semibold text-primary">
+          <Icon name={item.icon} size={18} aria-hidden="true" />
+          {item.title}
+        </h3>
+        {item.sentences.map((sentence) => (
+          <p class="text-sm leading-relaxed text-muted-foreground">{sentence}</p>
+        ))}
+      </section>
+    ))}
+  </div>
 </section>
 
-{
-  site.hero.cards.length > 0 && (
-    <div class="mb-10 sm:mb-16 grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-3">
-      {site.hero.cards.map((card, i) => (
-        <div
-          class="flex gap-4 rounded-2xl border border-border/50 bg-white/5 backdrop-blur-sm p-6 transition-all duration-300 hover:border-primary/30 hover:bg-white/10 hover:-translate-y-1 shadow-sm hover:shadow-md animate-in fade-in slide-in-from-bottom-4"
-          style={`animation-delay: ${i * 100}ms`}
-        >
-          <div class="text-2xl text-primary transition-transform duration-300 hover:scale-110 mt-1">
-            <Icon name={card.icon} />
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold tracking-widest text-muted-foreground uppercase mb-1">
-              {card.label}
-            </span>
-            <span class="text-base font-medium text-foreground/90">{card.value}</span>
-          </div>
+{site.hero.cards.length > 0 && (
+  <section class="mb-12 sm:mb-16" aria-label="近况与成果">
+    <dl class="divide-y divide-border/50 border-y border-border/50">
+      {site.hero.cards.map((item) => (
+        <div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-[7rem_1fr] sm:gap-5">
+          <dt class="flex items-center gap-2 text-xs font-medium text-primary">
+            <Icon name={item.icon} size={16} aria-hidden="true" />
+            {item.label}
+          </dt>
+          <dd class="text-sm leading-relaxed text-foreground/90">{item.value}</dd>
         </div>
       ))}
-    </div>
-  )
-}
-
-
+    </dl>
+  </section>
+)}

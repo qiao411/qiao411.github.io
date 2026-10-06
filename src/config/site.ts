@@ -45,11 +45,8 @@ const site = {
 
   // --- 首页问候语 ---
   hero: {
-    greeting: "👋 你好，我是巧巧",
-    // 支持 HTML。使用 <span class="font-medium text-foreground underline decoration-primary/30"> 来高亮关键词
-    description:
-      '<span class="font-medium text-foreground">南京大学</span> · <span class="font-medium text-foreground">经济管理</span> × <span class="font-medium text-foreground">生物科学</span> | <span class="font-medium text-foreground">产品运营</span> & <span class="font-medium text-foreground">数据驱动</span>',
-    subdescription: '在理性思维和感性表达间，做高效准确的产品决策，致力于创造有价值的产品体验',
+    greeting: "👋你好，我是巧",
+    description: "欢迎来到我的个人网站",
     cards: [
       { icon: "mdi:chart-line", label: "最新动态", value: "Deadliner 累计用户 3000+，Lifi AI 功能已上架iOS" },
       { icon: "mdi:trophy", label: "高光成就", value: "挑战杯全国三等奖 & 投资实习经历" },

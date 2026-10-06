@@ -19,7 +19,7 @@ import SearchBox from "./SearchBox.astro";
   <Nav />
 
   <div class="mt-auto flex items-center justify-between pt-8">
-    <div class="flex gap-4 text-muted-foreground/60">
+    <div class="flex items-center gap-4 text-muted-foreground/60">
       {
         site.social.map((item) => (
           item.copyValue ? (
@@ -27,7 +27,7 @@ import SearchBox from "./SearchBox.astro";
               type="button"
               data-copy-contact={item.copyValue}
               data-copy-message={item.copyMessage}
-              class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
+              class="inline-flex h-6 w-6 shrink-0 items-center justify-center p-0 leading-none cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
               aria-label={`复制${item.name}：${item.copyValue}`}
               title={`点击复制${item.name}`}
             >
@@ -36,7 +36,7 @@ import SearchBox from "./SearchBox.astro";
           ) : (
             <a
               href={item.href}
-              class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
+              class="inline-flex h-6 w-6 shrink-0 items-center justify-center p-0 leading-none cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
               aria-label={item.name}
               title={item.name}
             >

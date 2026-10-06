@@ -72,7 +72,7 @@ const currentPath = Astro.url.pathname;
                   type="button"
                   data-copy-contact={item.copyValue}
                   data-copy-message={item.copyMessage}
-                  class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  class="inline-flex h-6 w-6 shrink-0 items-center justify-center p-0 leading-none text-muted-foreground hover:text-primary transition-colors"
                   aria-label={`复制${item.name}：${item.copyValue}`}
                   title={`点击复制${item.name}`}
                 >
@@ -81,7 +81,7 @@ const currentPath = Astro.url.pathname;
               ) : (
                 <a
                   href={item.href}
-                  class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  class="inline-flex h-6 w-6 shrink-0 items-center justify-center p-0 leading-none text-muted-foreground hover:text-primary transition-colors"
                   aria-label={item.name}
                   title={item.name}
                 >
