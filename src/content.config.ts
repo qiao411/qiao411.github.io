@@ -102,6 +102,18 @@ const pages = defineCollection({
   }),
 });
 
+const homeSections = defineCollection({
+  loader: glob({
+    pattern: "*.md",
+    base: "./src/content/home",
+  }),
+  schema: z.object({
+    title: z.string(),
+    icon: z.string(),
+    order: z.number().int().nonnegative(),
+  }),
+});
+
 export const collections = {
   posts,
   projects,
@@ -109,4 +121,5 @@ export const collections = {
   tags,
   friends,
   pages,
+  homeSections,
 };

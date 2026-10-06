@@ -1,7 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
+import { getCollection, render } from "astro:content";
 import site from "@/config/site";
-import intro from "@/content/miscs/home-intro.json";
+
+const entries = (await getCollection("homeSections")).sort((a, b) => a.data.order - b.data.order);
+const sections = await Promise.all(entries.map(async (entry) => ({
+  entry,
+  ...await render(entry),
+})));
 ---
 
 <section class="mb-12 sm:mb-16" aria-label="首页介绍">
@@ -12,16 +18,16 @@ import intro from "@/content/miscs/home-intro.json";
     </p>
   </div>
 
-  <div class="mt-8 grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2 sm:mt-10">
-    {intro.map((item) => (
-      <section class="border-t border-border/60 pt-4">
-        <h3 class="mb-2 flex items-center gap-2 text-sm font-semibold text-primary">
-          <Icon name={item.icon} size={18} aria-hidden="true" />
-          {item.title}
+  <div class="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
+    {sections.map(({ entry, Content }) => (
+      <section aria-labelledby={`home-${entry.id}`}>
+        <h3 id={`home-${entry.id}`} class="mb-3 flex items-center gap-2 text-lg font-semibold text-foreground">
+          <Icon name={entry.data.icon} size={20} class="shrink-0 text-primary" aria-hidden="true" />
+          {entry.data.title}
         </h3>
-        {item.sentences.map((sentence) => (
-          <p class="text-sm leading-relaxed text-muted-foreground">{sentence}</p>
-        ))}
+        <div class="prose prose-sm dark:prose-invert max-w-none leading-relaxed text-muted-foreground prose-p:my-3 prose-ul:my-3 prose-ol:my-3 prose-headings:text-foreground prose-a:text-primary">
+          <Content />
+        </div>
       </section>
     ))}
   </div>
