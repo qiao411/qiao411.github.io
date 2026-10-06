@@ -4,6 +4,7 @@ createdAt: 2026-10-03
 category: technology
 tags: [prompt-evaluation, product-notes]
 summary: 当 AI 老师陪学生做实验时，一句回答是否准确、安全、能带着学生继续操作，比语气像不像人更重要。
+draft: true
 ---
 
 一个回答变得更自然，不代表它真的更有帮助。尤其是在实验教学里，学生可能正拿着器材等下一步指引；答错一个步骤，影响的不只是阅读体验。

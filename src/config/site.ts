@@ -10,7 +10,7 @@ const site = {
   // --- Site Metadata ---
   meta: {
     title: "陈巧的个人网站",
-    description: "我喜欢从具体的小麻烦出发，看看 AI 能不能让事情变得更简单。",
+    description: "南京大学生物科学本科生，专注 AI 产品、Agent 与大模型应用落地",
     author: "巧巧",
     logo: "/头像.jpg",
     ogImage: "/og-image.png",
@@ -44,15 +44,15 @@ const site = {
 
   // --- 首页问候语 ---
   hero: {
-    greeting: "让 AI 不只聪明，也真正好用。",
+    greeting: "👋 你好，我是陈巧",
     // 支持 HTML。使用 <span class="font-medium text-foreground underline decoration-primary/30"> 来高亮关键词
     description:
-      '我是<span class="font-medium text-foreground">陈巧</span>，南京大学生物科学本科、商科辅修。现在在做 <span class="font-medium text-foreground">AI 产品与 Agent</span>，关心模型如何进入真实工作流，而不只是在对话框里给出一个漂亮答案。',
-    subdescription: "从教育实验室到企业案例检索，再到多端任务管理：我喜欢把一个模糊需求拆成可体验、可评估、能上线的产品。",
+      '<span class="font-medium text-foreground">南京大学</span> · <span class="font-medium text-foreground">生物科学</span> × <span class="font-medium text-foreground">商科</span> | <span class="font-medium text-foreground">AI 产品</span> · <span class="font-medium text-foreground">Agent</span> · <span class="font-medium text-foreground">大模型应用</span>',
+    subdescription: "从用户问题出发，拆解 AI 场景并推动产品从原型、评估到工程落地。",
     cards: [
-      { icon: "mdi:flask-outline", metric: "73", label: "个物理实验", value: "从交互原型推进到真实上线" },
-      { icon: "mdi:database-search-outline", metric: "118", label: "个行业案例", value: "由案例管理 Agent 支持录入与检索" },
-      { icon: "mdi:calendar-check-outline", metric: "5,000+", label: "位用户", value: "持续打磨 AI 原生任务管理体验" },
+      { icon: "mdi:robot-outline", label: "AI 产品实践", value: "教育智能体回答准确率从 70% 提升至 94%" },
+      { icon: "mdi:cellphone-link", label: "个人项目", value: "Deadliner 多端 AI 任务管理产品，累计用户 5000+" },
+      { icon: "mdi:briefcase-outline", label: "当前工作", value: "字节跳动飞书 · AI 企业效能顾问" },
     ],
   },
 
@@ -114,8 +114,8 @@ const site = {
   // --- UI 标签 ---
   // 自定义这些值以更改页面上显示的文本
   labels: {
-    postsTitle: "产品手记",
-    postsDescription: "AI 产品、Agent 工作流与项目现场的观察和复盘",
+    postsTitle: "文章",
+    postsDescription: "分享思考、学习心得和行业见解",
     projectsTitle: "项目",
     projectsDescription: "围绕 AI Agent 与多模态应用的产品实践",
     friendsTitle: "合作",

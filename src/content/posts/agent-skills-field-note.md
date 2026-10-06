@@ -4,6 +4,7 @@ createdAt: 2026-10-06
 category: technology
 tags: [ai-agent, product-notes]
 summary: 做案例管理 Agent 时，我越来越在意的不是它能说多少，而是每一步该由它做什么、何时交还给人。
+draft: true
 ---
 
 刚开始设计 Agent，很容易先写一段角色设定：你是某某领域专家，请认真回答。可到了案例录入和检索这种真实工作里，光有一个“专家人设”并不能让事情顺利完成。
