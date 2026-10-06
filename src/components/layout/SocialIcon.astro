@@ -1,0 +1,21 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  name: string;
+  size?: number;
+  class?: string;
+}
+
+const { name, size = 24, class: className = "" } = Astro.props;
+---
+
+{name.startsWith("/") ? (
+  <span
+    class:list={["inline-block shrink-0 bg-current", className]}
+    style={`width:${size}px;height:${size}px;mask:url('${name}') center / contain no-repeat;-webkit-mask:url('${name}') center / contain no-repeat`}
+    aria-hidden="true"
+  />
+) : (
+  <Icon name={name} size={size} class={className} />
+)}

@@ -2,7 +2,7 @@
 import site from "@/config/site";
 import Nav from "./Nav.astro";
 import ThemeToggle from "./ThemeToggle.astro";
-import { Icon } from "astro-icon/components";
+import SocialIcon from "./SocialIcon.astro";
 import Brand from "./Brand.astro";
 import SearchModal from "../blocks/SearchModal.astro";
 import SearchBox from "./SearchBox.astro";
@@ -22,13 +22,26 @@ import SearchBox from "./SearchBox.astro";
     <div class="flex gap-4 text-muted-foreground/60">
       {
         site.social.map((item) => (
-          <a
-            href={item.href}
-            class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
-            aria-label={item.name}
-          >
-            <Icon name={item.icon} size={24} />
-          </a>
+          item.value ? (
+            <button
+              type="button"
+              data-copy-contact={item.value}
+              class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
+              aria-label={`复制微信号：${item.value}`}
+              title={`微信号：${item.value}（点击复制）`}
+            >
+              <SocialIcon name={item.icon} size={24} />
+            </button>
+          ) : (
+            <a
+              href={item.href}
+              class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
+              aria-label={item.name}
+              title={item.name}
+            >
+              <SocialIcon name={item.icon} size={24} />
+            </a>
+          )
         ))
       }
     </div>
@@ -38,3 +51,22 @@ import SearchBox from "./SearchBox.astro";
 
   <SearchModal />
 </aside>
+
+<script>
+  document.addEventListener("click", async (event) => {
+    if (!(event.target instanceof Element)) return;
+    const button = event.target.closest<HTMLButtonElement>("[data-copy-contact]");
+    const value = button?.dataset.copyContact;
+    if (!button || !value) return;
+
+    try {
+      await navigator.clipboard.writeText(value);
+      button.title = `微信号已复制：${value}`;
+      window.setTimeout(() => {
+        button.title = `微信号：${value}（点击复制）`;
+      }, 1600);
+    } catch {
+      button.title = `微信号：${value}`;
+    }
+  });
+</script>
