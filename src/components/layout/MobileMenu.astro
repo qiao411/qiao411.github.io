@@ -67,13 +67,14 @@ const currentPath = Astro.url.pathname;
         <div class="flex items-center justify-center gap-4">
           {
             site.social.map((item) => (
-              item.value ? (
+              item.copyValue ? (
                 <button
                   type="button"
-                  data-copy-contact={item.value}
+                  data-copy-contact={item.copyValue}
+                  data-copy-message={item.copyMessage}
                   class="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
-                  aria-label={`复制微信号：${item.value}`}
-                  title={`微信号：${item.value}（点击复制）`}
+                  aria-label={`复制${item.name}：${item.copyValue}`}
+                  title={`点击复制${item.name}`}
                 >
                   <SocialIcon name={item.icon} size={22} />
                 </button>

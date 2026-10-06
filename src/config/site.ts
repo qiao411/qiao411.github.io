@@ -31,9 +31,9 @@ const site = {
   // --- 社交链接 ---
   social: [
     { name: "GitHub", href: "https://github.com/qiao411", icon: "mdi:github" },
-    { name: "QQ 邮箱", href: "mailto:3545659167@qq.com", icon: "mdi:email" },
+    { name: "QQ 邮箱", href: "mailto:3545659167@qq.com", icon: "mdi:email", copyValue: "3545659167@qq.com", copyMessage: "已复制邮箱" },
     { name: "小红书", href: "https://xhslink.cn/o/5DIWT2ojJJY", icon: "/icons/xiaohongshu.svg" },
-    { name: "微信", href: "#", icon: "mdi:wechat", value: "cq15571877985" },
+    { name: "微信", href: "#", icon: "mdi:wechat", value: "cq15571877985", copyValue: "cq15571877985", copyMessage: "已复制微信号" },
   ],
 
   friendCard: {

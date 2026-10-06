@@ -22,13 +22,14 @@ import SearchBox from "./SearchBox.astro";
     <div class="flex gap-4 text-muted-foreground/60">
       {
         site.social.map((item) => (
-          item.value ? (
+          item.copyValue ? (
             <button
               type="button"
-              data-copy-contact={item.value}
+              data-copy-contact={item.copyValue}
+              data-copy-message={item.copyMessage}
               class="cursor-pointer transition-all duration-200 hover:text-primary hover:scale-110"
-              aria-label={`复制微信号：${item.value}`}
-              title={`微信号：${item.value}（点击复制）`}
+              aria-label={`复制${item.name}：${item.copyValue}`}
+              title={`点击复制${item.name}`}
             >
               <SocialIcon name={item.icon} size={24} />
             </button>
@@ -61,12 +62,38 @@ import SearchBox from "./SearchBox.astro";
 
     try {
       await navigator.clipboard.writeText(value);
-      button.title = `微信号已复制：${value}`;
-      window.setTimeout(() => {
-        button.title = `微信号：${value}（点击复制）`;
-      }, 1600);
     } catch {
-      button.title = `微信号：${value}`;
+      try {
+        const field = document.createElement("textarea");
+        field.value = value;
+        field.setAttribute("readonly", "");
+        field.style.position = "fixed";
+        field.style.opacity = "0";
+        document.body.append(field);
+        field.select();
+        document.execCommand("copy");
+        field.remove();
+      } catch {
+        // Still show the requested feedback if browser clipboard access is unavailable.
+      }
     }
+
+    let toast = document.getElementById("contact-copy-toast");
+    if (!toast) {
+      toast = document.createElement("div");
+      toast.id = "contact-copy-toast";
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
+      toast.className = "fixed bottom-6 left-1/2 z-[100] -translate-x-1/2 rounded-xl bg-foreground px-4 py-2 text-sm text-background shadow-lg pointer-events-none";
+      toast.style.opacity = "0";
+      toast.style.transition = "opacity 200ms ease";
+      document.body.append(toast);
+    }
+    toast.textContent = button.dataset.copyMessage || "已复制";
+    toast.style.opacity = "1";
+    window.clearTimeout(Number(toast.dataset.hideTimer));
+    toast.dataset.hideTimer = String(window.setTimeout(() => {
+      if (toast) toast.style.opacity = "0";
+    }, 1800));
   });
 </script>
