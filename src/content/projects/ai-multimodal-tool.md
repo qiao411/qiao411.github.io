@@ -1,19 +1,31 @@
 ---
-title: NoteFlowAI 多模态笔记生成系统
-description: 面向课堂与会议场景，将图片、音频和文本整理为结构化笔记、思维导图与学习建议。
-tech: [OCR, ASR, VLM, LLM, RAG, Python]
-status: in-progress
+title: AI 多模态信息整合工具
+description: 一款能够整合多种模态信息（文本、图像、语音）的 AI 工具。
+tech: [Python, React, TensorFlow, OpenAI API]
+links:
+  github: https://github.com/your-username/ai-multimodal-tool
+  demo: https://ai-multimodal-tool.com
+status: completed
 ---
 
 ## 项目概述
-
-NoteFlowAI 探索如何把课堂与会议中的图片、音频和文本内容，转化为结构化 Markdown 笔记、思维导图和学习建议。方案结合 OCR、ASR、VLM、LLM 与 RAG，覆盖多模态输入、内容检索和结果生成。
+AI 多模态信息整合工具是一款能够处理和整合多种模态信息的智能工具，可将文本、图像和语音信息进行统一分析和处理。
 
 ## 我的角色与贡献
+- 负责用户调研和需求分析
+- 参与商业计划书的撰写
+- 主导路演和项目展示
+- 负责用户界面设计和用户体验优化
 
-- 担任产品负责人与 AI 应用开发，完成场景拆解、产品方案和持续迭代。
-- 基于阿里云百炼完成低代码原型验证，再使用 Python 重构应用。
-- 使用 Vibe Coding 开发模型调用链路、RAG 检索流程与业务逻辑，并持续调整 Prompt。
-- 完成 500+ 用户调研，构建用户画像与需求分析，输出产品规划、可行性分析和商业方案。
+## 关键成果
+- 完成 500+ 用户调研
+- 构建详细的用户画像
+- 获得南京大学"天池杯"奖项
+- 形成完整的商业计划书和落地路径
 
-> 待补充素材：产品界面、笔记生成示例、思维导图示例。请提供可以公开展示的版本。
+## 过程亮点
+通过深入的用户调研，发现用户对多模态信息整合的核心需求是简化信息处理流程，据此优化了产品设计，提高了用户满意度。
+
+## 相关链接
+- [GitHub 仓库](https://github.com/your-username/ai-multimodal-tool)
+- [商业计划书](https://ai-multimodal-tool.com/business-plan)

@@ -4,7 +4,6 @@ createdAt: 2026-01-01
 category: life
 tags: [astro, tailwindcss]
 summary: 欢迎来到我的个人网站，这是一个记录生活点滴的地方。
-draft: true
 ---
 
 欢迎来到我的**个人网站**，这是一个干净简洁的网站，用于分享我的生活和感悟。

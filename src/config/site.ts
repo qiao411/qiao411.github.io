@@ -9,8 +9,8 @@ const artalkEnabled =
 const site = {
   // --- Site Metadata ---
   meta: {
-    title: "陈巧的个人网站",
-    description: "南京大学生物科学本科生，专注 AI 产品、Agent 与大模型应用落地",
+    title: "巧巧的个人网站",
+    description: "经济学与生物学的交叉视角，专注产品运营与数据驱动的创新者",
     author: "巧巧",
     logo: "/头像.jpg",
     ogImage: "/og-image.png",
@@ -32,33 +32,35 @@ const site = {
   // --- 社交链接 ---
   social: [
     { name: "GitHub", href: "https://github.com/qiao411", icon: "mdi:github" },
-    { name: "邮箱", href: "mailto:3545659167@qq.com", icon: "mdi:email" },
+    { name: "邮箱", href: "mailto:hello@example.com", icon: "mdi:email" },
+    { name: "LinkedIn", href: "https://linkedin.com/in/your-profile", icon: "mdi:linkedin" },
+    { name: "微信", href: "#", icon: "mdi:wechat" },
   ],
 
   friendCard: {
-    name: "陈巧的个人网站",
-    description: "专注 AI 产品、Agent 与大模型应用落地",
-    link: "https://qiao411.github.io",
-    avatar: "/头像.jpg",
+    name: "巧巧的个人网站",
+    description: "经济学与生物学的交叉视角，专注产品运营与数据驱动的创新者",
+    link: "https://your-domain.com",
+    avatar: "https://your-domain.com/logo.svg",
   },
 
   // --- 首页问候语 ---
   hero: {
-    greeting: "👋 你好，我是陈巧",
+    greeting: "👋 你好，我是巧巧",
     // 支持 HTML。使用 <span class="font-medium text-foreground underline decoration-primary/30"> 来高亮关键词
     description:
-      '<span class="font-medium text-foreground">南京大学</span> · <span class="font-medium text-foreground">生物科学</span> × <span class="font-medium text-foreground">商科</span> | <span class="font-medium text-foreground">AI 产品</span> · <span class="font-medium text-foreground">Agent</span> · <span class="font-medium text-foreground">大模型应用</span>',
-    subdescription: "从用户问题出发，拆解 AI 场景并推动产品从原型、评估到工程落地。",
+      '<span class="font-medium text-foreground">南京大学</span> · <span class="font-medium text-foreground">经济管理</span> × <span class="font-medium text-foreground">生物科学</span> | <span class="font-medium text-foreground">产品运营</span> & <span class="font-medium text-foreground">数据驱动</span>',
+    subdescription: '在理性思维和感性表达间，做高效准确的产品决策，致力于创造有价值的产品体验',
     cards: [
-      { icon: "mdi:robot-outline", label: "AI 产品实践", value: "教育智能体回答准确率从 70% 提升至 94%" },
-      { icon: "mdi:cellphone-link", label: "个人项目", value: "Deadliner 多端 AI 任务管理产品，累计用户 5000+" },
-      { icon: "mdi:briefcase-outline", label: "当前工作", value: "字节跳动飞书 · AI 企业效能顾问" },
+      { icon: "mdi:chart-line", label: "最新动态", value: "Deadliner 累计用户 3000+，Lifi AI 功能已上架iOS" },
+      { icon: "mdi:trophy", label: "高光成就", value: "挑战杯全国三等奖 & 投资实习经历" },
+      { icon: "mdi:account-clock", label: "当前状态", value: "大三在读，寻找产品运营或商业分析实习" },
     ],
   },
 
   // --- 页脚 ---
   footer: {
-    copyright: "© 2026 陈巧",
+    copyright: "© 2026 巧巧",
     builtWith: "使用 Astro 构建",
   },
 
@@ -83,30 +85,32 @@ const site = {
   // 每个项目可以使用 `icon`（Iconify 名称）或 `logo`（公共路径或 { light, dark } 路径）
   tools: [
     {
-      name: "AI 产品",
+      name: "开发",
       items: [
-        { name: "Claude Code", icon: "mdi:robot-outline" },
-        { name: "Cursor", link: "https://www.cursor.com", icon: "mdi:cursor-default-click" },
-        { name: "Trae", link: "https://www.trae.ai", icon: "mdi:code-braces" },
+        { name: "VS Code", link: "https://code.visualstudio.com", icon: "mdi:microsoft-visual-studio-code" },
+        { name: "WebStorm", link: "https://www.jetbrains.com/webstorm", icon: "mdi:code-braces" },
+        { name: "终端", icon: "mdi:terminal" },
+        { name: "Git", link: "https://git-scm.com", icon: "mdi:git" },
+        { name: "Docker", link: "https://www.docker.com", icon: "mdi:docker" },
+        { name: "Postman", link: "https://www.postman.com", icon: "mdi:api" },
+      ]
+    },
+    {
+      name: "设计",
+      items: [
         { name: "Figma", link: "https://www.figma.com", icon: "mdi:vector-polygon" },
+        { name: "Sketch", link: "https://www.sketch.com", icon: "mdi:vector-square" },
+        { name: "Adobe XD", link: "https://www.adobe.com/products/xd.html", icon: "mdi:pencil-ruler" },
+        { name: "Photoshop", link: "https://www.adobe.com/products/photoshop.html", icon: "mdi:image-edit" },
       ]
     },
     {
-      name: "AI 应用",
+      name: "生产力",
       items: [
-        { name: "Prompt 设计与评测", icon: "mdi:message-text-outline" },
-        { name: "RAG", icon: "mdi:database-search-outline" },
-        { name: "AI Agent / Skills", icon: "mdi:robot" },
-        { name: "多模态模型", icon: "mdi:layers-triple-outline" },
-      ]
-    },
-    {
-      name: "数据与开发",
-      items: [
-        { name: "Python", icon: "mdi:language-python" },
-        { name: "SQL", icon: "mdi:database-outline" },
-        { name: "React", icon: "mdi:react" },
-        { name: "Astro", link: "https://astro.build", icon: "mdi:rocket-launch-outline" },
+        { name: "Notion", link: "https://www.notion.so", icon: "mdi:notebook" },
+        { name: "Obsidian", link: "https://obsidian.md", icon: "mdi:diamond-stone" },
+        { name: "Raycast", link: "https://www.raycast.com", icon: "mdi:lightning-bolt" },
+        { name: "Arc 浏览器", link: "https://arc.net", icon: "mdi:web" },
       ]
     },
   ],
@@ -117,9 +121,9 @@ const site = {
     postsTitle: "文章",
     postsDescription: "分享思考、学习心得和行业见解",
     projectsTitle: "项目",
-    projectsDescription: "围绕 AI Agent 与多模态应用的产品实践",
+    projectsDescription: "用技术解决实际问题的实践成果",
     friendsTitle: "合作",
-    friendsDescription: "一起探索 AI 产品与效率工具",
+    friendsDescription: "志同道合的伙伴与资源网络",
     toolsTitle: "工具栈",
     toolsDescription: "提升效率的常用工具和技术",
     aboutTitle: "关于",

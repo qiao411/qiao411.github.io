@@ -1,20 +1,20 @@
 [
   {
-    "name": "AI & Agent",
+    "name": "Technology",
     "slug": "technology",
-    "description": "关于 AI 产品、Agent 工作流与大模型应用的实践手记",
+    "description": "Articles about web development and programming",
     "icon": "mdi:code-tags"
   },
   {
-    "name": "Product Notes",
+    "name": "Design",
     "slug": "design",
-    "description": "从用户问题、交互设计到产品验证的观察",
+    "description": "Thoughts on UI/UX and visual design",
     "icon": "mdi:palette"
   },
   {
-    "name": "Field Notes",
+    "name": "Life",
     "slug": "life",
-    "description": "学习、项目现场与日常灵感记录",
+    "description": "Daily life and personal reflections",
     "icon": "mdi:coffee"
   },
   {
