@@ -1,22 +1,20 @@
 ---
-import site from "@/config/site";
-import Layout from "@/layouts/Layout.astro";
 import { getEntry, render } from "astro:content";
+import site from "@/config/site";
 
 const about = await getEntry("pages", "about");
 const { Content } = await render(about!);
 ---
 
-<Layout title={site.labels.aboutTitle} description={site.labels.aboutDescription}>
-  <div class="animate-in fade-in mx-auto max-w-2xl p-4 sm:p-6 md:p-16">
-    <div class="prose dark:prose-invert mb-16">
+<section class="mt-16 border-t border-border/50 pt-12">
+  <div class="prose dark:prose-invert mb-12">
       <Content />
-    </div>
+  </div>
 
     <!-- 技能矩阵 -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold mb-6">技能矩阵</h2>
-      
+
       <div class="space-y-6">
         <!-- 数据分析 -->
         <div>
@@ -34,7 +32,7 @@ const { Content } = await render(about!);
             <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">Excel</span>
           </div>
         </div>
-        
+
         <!-- 产品运营 -->
         <div>
           <div class="flex justify-between mb-2">
@@ -51,7 +49,7 @@ const { Content } = await render(about!);
             <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">需求文档</span>
           </div>
         </div>
-        
+
         <!-- 视觉设计 -->
         <div>
           <div class="flex justify-between mb-2">
@@ -67,7 +65,7 @@ const { Content } = await render(about!);
             <span class="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">Figma</span>
           </div>
         </div>
-        
+
         <!-- 办公协同 -->
         <div>
           <div class="flex justify-between mb-2">
@@ -97,7 +95,7 @@ const { Content } = await render(about!);
     <!-- 个人侧面 -->
     <section class="mb-16">
       <h2 class="text-2xl font-bold mb-6">个人侧面</h2>
-      
+
       <div class="space-y-6">
         <!-- 兴趣标签 -->
         <div>
@@ -109,7 +107,7 @@ const { Content } = await render(about!);
             <span class="px-3 py-1 rounded-full bg-primary/10 text-primary">科技前沿</span>
           </div>
         </div>
-        
+
         <!-- 当前在读的书 -->
         <div>
           <h3 class="text-sm font-medium mb-3">当前关注</h3>
@@ -120,7 +118,7 @@ const { Content } = await render(about!);
             <li>• 生物医药行业趋势</li>
           </ul>
         </div>
-        
+
         <!-- 联系方式 -->
         <div>
           <h3 class="text-sm font-medium mb-3">联系方式</h3>
@@ -138,7 +136,7 @@ const { Content } = await render(about!);
             }
           </div>
         </div>
-        
+
         <!-- 下载简历 -->
         <div class="mt-8">
           <a href="#" class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-primary bg-primary text-white hover:bg-primary/90 transition-colors">
@@ -147,5 +145,4 @@ const { Content } = await render(about!);
         </div>
       </div>
     </section>
-  </div>
-</Layout>
+  </section>

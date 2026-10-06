@@ -26,7 +26,6 @@ const site = {
     { name: "项目", subtitle: "PROJECTS", href: "/projects" },
     { name: "经历", subtitle: "EXPERIENCE", href: "/experience" },
     { name: "合作", subtitle: "PARTNERS", href: "/friends" },
-    { name: "关于", subtitle: "ABOUT", href: "/about" },
   ],
 
   // --- 社交链接 ---
