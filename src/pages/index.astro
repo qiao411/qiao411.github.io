@@ -1,16 +1,18 @@
 ---
 import Hero from "@/components/blocks/Hero.astro";
+import ProductApproach from "@/components/blocks/ProductApproach.astro";
 import RecentPosts from "@/components/blocks/RecentPosts.astro";
-import Footer from "@/components/layout/Footer.astro";
 import site from "@/config/site";
 import Layout from "@/layouts/Layout.astro";
 ---
 
 <Layout title={site.meta.title} description={site.meta.description}>
   <div
-    class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-4 sm:p-6 md:p-16"
+    class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-4xl p-4 sm:p-6 md:p-12 lg:p-16"
   >
     <Hero />
+
+    <ProductApproach />
 
     <RecentPosts />
   </div>

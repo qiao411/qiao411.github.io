@@ -5,5 +5,9 @@
   { "name": "TypeScript", "slug": "typescript" },
   { "name": "CSS", "slug": "css" },
   { "name": "Markdown", "slug": "markdown" },
-  { "name": "Tutorial", "slug": "tutorial" }
+  { "name": "Tutorial", "slug": "tutorial" },
+  { "name": "AI Agent", "slug": "ai-agent" },
+  { "name": "产品手记", "slug": "product-notes" },
+  { "name": "Prompt 评测", "slug": "prompt-evaluation" },
+  { "name": "多模态", "slug": "multimodal" }
 ]

@@ -1,38 +1,25 @@
 ---
 title: 关于我
-description: 陈巧的学习经历、产品方向与实践方法
+description: 陈巧的跨学科背景、AI 产品实践与思考方式
 ---
 
-## 关于我
+## 我在意的问题
 
-你好，我是陈巧，目前就读于南京大学，主修生物科学、辅修商科。我关注 AI 产品经理、大模型应用与 AI Agent 方向，喜欢把复杂技术转化为清晰、可验证的用户体验。
+AI 能做很多事，但对用户来说，真正重要的往往是：**它能不能让眼前这一步少一点麻烦？**
 
-我做过教育智能体、个人效率工具和多模态 AI 应用，也在企业效能场景搭建过案例管理 Agent。项目中通常从用户研究与问题定义开始，继续完成产品方案、原型与 Prompt 设计、效果评估，并与研发协作推进落地。
+我是陈巧，南京大学生物科学本科、商科辅修。生科训练让我习惯拆解复杂系统，商科学习让我继续追问产品为什么有价值。开始做 AI 产品后，我把这两种问题放在一起：模型能做什么，用户又为什么愿意持续使用？
 
-## 关注的方向
+## 我做过的尝试
 
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-  <div class="rounded-xl border border-border/50 bg-white/5 backdrop-blur-sm p-4 transition-all hover:border-primary/30 hover:shadow-sm">
-    <h3 class="font-bold text-foreground/90 mb-2">AI Agent</h3>
-    <p class="text-sm text-muted-foreground">任务拆解、工具与 Skill 设计、知识检索和可持续优化的反馈闭环。</p>
-  </div>
-  <div class="rounded-xl border border-border/50 bg-white/5 backdrop-blur-sm p-4 transition-all hover:border-primary/30 hover:shadow-sm">
-    <h3 class="font-bold text-foreground/90 mb-2">多模态应用</h3>
-    <p class="text-sm text-muted-foreground">探索 OCR、ASR、VLM、LLM 与 RAG 在学习、会议和招聘场景中的组合应用。</p>
-  </div>
-  <div class="rounded-xl border border-border/50 bg-white/5 backdrop-blur-sm p-4 transition-all hover:border-primary/30 hover:shadow-sm">
-    <h3 class="font-bold text-foreground/90 mb-2">产品验证</h3>
-    <p class="text-sm text-muted-foreground">通过用户访谈、行为数据和评测集验证问题与模型效果，持续推动产品迭代。</p>
-  </div>
-</div>
+- 在教育场景里，把 AI 老师放进实验步骤中，关注它能否准确引导、及时答疑，也能安全地承认不确定。
+- 在企业案例管理场景里，把录入、打标和检索拆成不同 Skill，让团队更容易检查 Agent 做了什么。
+- 在 Deadliner 里探索对话式任务管理：让用户用自然语言表达目标，再由 Agent 协助识别与拆解任务。
+- 在 NoteFlowAI 里组合 OCR、ASR、VLM、LLM 与 RAG，尝试让课堂和会议里的多模态信息变成可复用的笔记。
 
-## 学习与实践
+这些项目不只是“把模型接进来”。我更喜欢处理产品真正变复杂的部分：需求有没有被理解、结果如何评估、失败时怎么恢复，以及怎样让新能力融入原来的工作流程。
 
-- **教育背景：** 南京大学（2023.09–2027.06），生物科学本科、商科辅修。
-- **产品与工程：** 熟悉用户调研、需求分析、产品规划、Figma 原型、Python、SQL 与 Vibe Coding。
-- **AI 应用：** 有 Prompt 设计与评估、RAG、多模态模型及 Agent 工作流的实践经验。
-- **荣誉：** 第十九届“挑战杯”科大讯飞 AI 赛道全国三等奖；iGEM 全球最佳单项奖 Best Human Practices。
+## 最近在学习
 
-## 联系我
+我会持续记录 Prompt 评测、Agent 工作流、多模态信息处理和 AI Native 产品设计中的问题。答案不一定完整；比起写成一份万能方法，我更愿意把判断依据和还没想通的地方一起记下来。
 
-如果你正在探索 AI 产品、Agent 或多模态应用，欢迎通过 [邮箱](mailto:3545659167@qq.com) 联系我，也可以在 [GitHub](https://github.com/qiao411) 查看我的项目。
+你可以从首页的 [AI 产品手记](/#field-notes) 开始，也可以浏览 [项目经历](/projects) 和 [工作时间线](/experience)。
