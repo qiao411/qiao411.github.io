@@ -1,119 +1,124 @@
 ---
 import site from "@/config/site";
 import Layout from "@/layouts/Layout.astro";
+
+const entries = [
+  {
+    date: "2026.07–至今",
+    title: "字节跳动 · 飞书",
+    role: "AI 企业效能顾问",
+    bullets: [
+      "独立搭建案例管理专家 Agent，配置 6 个 Skill，覆盖案例录入、自动打标与自然语言检索。",
+      "沉淀 118 个行业案例，建立反馈闭环，查询准确率达到 87%。",
+      "独立搭建 React 轻量应用，可视化展示案例库，支持内部售前案例查询。",
+    ],
+    tags: ["Agent / Skills", "知识检索", "React"],
+  },
+  {
+    date: "2026.03–2026.07",
+    title: "作业帮教育科技有限公司（北京）",
+    role: "AI 产品经理 · 教育智能体",
+    bullets: [
+      "参与 AI 数理实验室产品设计，覆盖实验启动、步骤引导、器材交互、AI 对话与结果评测。",
+      "搭建覆盖 73 个实验的 200+ 组多轮对话评测集；优化 Prompt 后，AI 老师回答准确率从 70% 提升至 94%。",
+      "设计 6 套通用 UI，推动 73 个物理实验从原型到上线；单实验开发周期由 2 天缩短至 0.7 天。",
+    ],
+    tags: ["AI 教育", "Prompt 评测", "产品交付"],
+  },
+  {
+    date: "2025.11–2026.02",
+    title: "南京动平衡创业投资管理有限公司",
+    role: "生物医药组投资实习生",
+    bullets: [
+      "开展生物医药细分领域研究，完成行业研究报告 4 份。",
+      "搭建财务测算模型，分析不同项目节点的 ROI，为投资判断提供数据支持。",
+    ],
+    tags: ["行业研究", "财务建模", "商业分析"],
+  },
+  {
+    date: "2025.06–2025.12",
+    title: "伯乐瞳 · 多模态 AI 面试评测系统",
+    role: "核心成员 · 数据负责人 / 产品运营",
+    bullets: [
+      "负责需求分析、产品方案、岗位知识体系与评测指标设计，推动项目从方案到竞赛落地。",
+      "基于 RAG、LLM 融合语音、视频与文本信息，实现面试表现自动评估；获挑战杯科大讯飞 AI 赛道全国三等奖。",
+    ],
+    tags: ["多模态 AI", "RAG / LLM", "挑战杯全国三等奖"],
+  },
+  {
+    date: "2025.05–至今",
+    title: "NoteFlowAI 多模态笔记生成系统",
+    role: "产品负责人 · AI 应用开发",
+    bullets: [
+      "面向课堂与会议场景，设计从图片、音频和文本生成结构化笔记、思维导图与学习建议的产品方案。",
+      "使用阿里云百炼验证低代码原型，再以 Python 重构应用；通过 Vibe Coding 完成模型调用、RAG 检索与业务流程。",
+      "完成 500+ 用户调研，独立输出产品规划、可行性分析与商业方案，持续迭代个人产品。",
+    ],
+    tags: ["OCR / ASR / VLM", "RAG", "Python"],
+  },
+  {
+    date: "2024.12–至今",
+    title: "Deadliner · 多端 AI 任务管理 App",
+    role: "联合创始人 · 产品经理",
+    bullets: [
+      "推动产品从传统待办工具转向 AI Native Agent，规划自然语言任务识别、任务拆解与用户记忆能力。",
+      "制定冷启动与社区增长策略，获得 800+ 有效下载、400+ 注册用户；通过反馈与数据迭代，次月留存率提升至 92%。",
+      "产品覆盖 Android、HarmonyOS、iOS 与 PC，累计用户 5000+。",
+    ],
+    tags: ["AI Agent", "产品增长", "多端产品"],
+  },
+  {
+    date: "2023.09–至今",
+    title: "南京大学 · 校园经历",
+    role: "生科院团支部书记 / 商学院学生会成员",
+    bullets: [
+      "担任团支部书记，组织 1200+ 人次活动，获 2025、2026 年优秀团支部书记。",
+      "参与商学院学生会学术科创部工作，获得优秀部员称号。",
+    ],
+    tags: ["组织协作", "活动策划", "校园实践"],
+  },
+];
 ---
 
-<Layout title="{site.labels.experienceTitle}" description="{site.labels.experienceDescription}">
+<Layout title={site.labels.experienceTitle} description={site.labels.experienceDescription}>
   <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-4xl p-4 sm:p-6 md:p-16">
     <h1 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-12">{site.labels.experienceTitle}</h1>
-    
+
     <div class="relative">
       <div class="absolute left-1/2 top-0 bottom-0 w-px bg-border"></div>
-      
       <div class="space-y-12">
-        <!-- 投资实习 -->
-        <div class="relative flex gap-8 md:gap-12">
-          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
-          <div class="flex-1 text-right">
-            <span class="text-xs sm:text-sm font-bold text-primary">2025.11-2026.02</span>
-            <h3 class="text-lg sm:text-xl font-bold mt-1">南京动平衡创业投资管理有限公司</h3>
-            <p class="text-sm text-muted-foreground mt-1">生物医药组投资实习生</p>
-            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
-              <li>• 财务模型测算、医药魔方平台数据分析</li>
-              <li>• 参与尽调会议并整理会议纪要</li>
-              <li>• 进行行业研究和商业判断</li>
-            </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-end">
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">行业研究</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">数据分析</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业判断</span>
-            </div>
+        {entries.map((entry, index) => (
+          <div class="relative flex gap-8 md:gap-12">
+            <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
+            {index % 2 === 0 && (
+              <div class="flex-1 text-right">
+                <span class="text-xs sm:text-sm font-bold text-primary">{entry.date}</span>
+                <h3 class="text-lg sm:text-xl font-bold mt-1">{entry.title}</h3>
+                <p class="text-sm text-muted-foreground mt-1">{entry.role}</p>
+                <ul class="mt-3 text-sm text-muted-foreground space-y-1">
+                  {entry.bullets.map((bullet) => <li>• {bullet}</li>)}
+                </ul>
+                <div class="mt-3 flex flex-wrap gap-2 justify-end">
+                  {entry.tags.map((tag) => <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{tag}</span>)}
+                </div>
+              </div>
+            )}
+            {index % 2 === 0 ? <div class="hidden md:block flex-1"></div> : <div class="hidden md:block flex-1"></div>}
+            {index % 2 !== 0 && (
+              <div class="flex-1">
+                <span class="text-xs sm:text-sm font-bold text-primary">{entry.date}</span>
+                <h3 class="text-lg sm:text-xl font-bold mt-1">{entry.title}</h3>
+                <p class="text-sm text-muted-foreground mt-1">{entry.role}</p>
+                <ul class="mt-3 text-sm text-muted-foreground space-y-1">
+                  {entry.bullets.map((bullet) => <li>• {bullet}</li>)}
+                </ul>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  {entry.tags.map((tag) => <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{tag}</span>)}
+                </div>
+              </div>
+            )}
           </div>
-          <div class="hidden md:block flex-1"></div>
-        </div>
-        
-        <!-- 挑战杯 -->
-        <div class="relative flex gap-8 md:gap-12">
-          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
-          <div class="hidden md:block flex-1"></div>
-          <div class="flex-1">
-            <span class="text-xs sm:text-sm font-bold text-primary">2025.06-2025.12</span>
-            <h3 class="text-lg sm:text-xl font-bold mt-1">挑战杯 · 多模态 AI 面试评测系统</h3>
-            <p class="text-sm text-muted-foreground mt-1">全国三等奖</p>
-            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
-              <li>• 数据负责人 + 产品运营 + 视觉设计</li>
-              <li>• 从 0 到 1 搭建面试题库</li>
-              <li>• 主导 AB 轮测试和用户反馈收集</li>
-            </ul>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AI 技术</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品运营</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">视觉设计</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 天池杯 -->
-        <div class="relative flex gap-8 md:gap-12">
-          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
-          <div class="flex-1 text-right">
-            <span class="text-xs sm:text-sm font-bold text-primary">2025.05</span>
-            <h3 class="text-lg sm:text-xl font-bold mt-1">南京大学"天池杯" · AI 多模态信息整合工具</h3>
-            <p class="text-sm text-muted-foreground mt-1">校级奖项</p>
-            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
-              <li>• 完成 500+ 用户调研</li>
-              <li>• 构建详细的用户画像</li>
-              <li>• 撰写商业计划书并参与路演</li>
-            </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-end">
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户调研</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">商业计划</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">路演</span>
-            </div>
-          </div>
-          <div class="hidden md:block flex-1"></div>
-        </div>
-        
-        <!-- Deadliner -->
-        <div class="relative flex gap-8 md:gap-12">
-          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
-          <div class="hidden md:block flex-1"></div>
-          <div class="flex-1">
-            <span class="text-xs sm:text-sm font-bold text-primary">2025.02-至今</span>
-            <h3 class="text-lg sm:text-xl font-bold mt-1">Deadliner 任务管理软件</h3>
-            <p class="text-sm text-muted-foreground mt-1">联合创始人</p>
-            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
-              <li>• 主导产品从 0 到 1 的规划和设计</li>
-              <li>• 负责冷启动增长和用户裂变</li>
-              <li>• 进行 AB 测试和数据分析</li>
-            </ul>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">产品设计</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">用户增长</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">AB 测试</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- 校园 Leadership -->
-        <div class="relative flex gap-8 md:gap-12">
-          <div class="absolute left-1/2 top-4 -translate-x-1/2 w-3 h-3 rounded-full bg-primary"></div>
-          <div class="flex-1 text-right">
-            <span class="text-xs sm:text-sm font-bold text-primary">2023.09-至今</span>
-            <h3 class="text-lg sm:text-xl font-bold mt-1">校园 Leadership</h3>
-            <p class="text-sm text-muted-foreground mt-1">团支部书记 / 学生会干部</p>
-            <ul class="mt-3 text-sm text-muted-foreground space-y-1">
-              <li>• 团支部书记：组织 1200+ 人次活动，获优秀团支书称号</li>
-              <li>• 商学院学生会学术科创部：对接 200+ 团队，负责公众号运营</li>
-            </ul>
-            <div class="mt-3 flex flex-wrap gap-2 justify-end">
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">领导力</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">活动组织</span>
-              <span class="text-[10px] sm:text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">公众号运营</span>
-            </div>
-          </div>
-          <div class="hidden md:block flex-1"></div>
-        </div>
+        ))}
       </div>
     </div>
   </div>

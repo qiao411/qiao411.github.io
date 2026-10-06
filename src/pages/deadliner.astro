@@ -5,54 +5,54 @@ import { Icon } from "astro-icon/components";
 
 const deadlinerData = {
   stats: {
-    totalUsers: "3000+",
+    totalUsers: "5000+",
     activeUsers: "100+",
-    retention: "30%",
-    dailyActive: "50%",
+    retention: "92%",
+    dailyActive: "4 端",
   },
   features: [
-    { icon: "mdi:format-list-checkbox", title: "智能任务管理", description: "支持子任务、优先级、标签分类" },
-    { icon: "mdi:calendar-clock", title: "日历整合", description: "与系统日历同步，支持多平台" },
-    { icon: "mdi:chart-line", title: "数据统计", description: "详细的工作效率分析报告" },
+    { icon: "mdi:message-processing-outline", title: "对话式任务管理", description: "以自然语言创建和管理任务，降低操作成本" },
+    { icon: "mdi:format-list-checks", title: "智能任务拆解", description: "将复杂目标拆分为可执行的任务步骤" },
+    { icon: "mdi:brain", title: "用户记忆学习", description: "探索 Agent 对用户偏好与习惯的持续学习" },
     { icon: "mdi:bell-ring", title: "智能提醒", description: "可自定义的提醒时间和频率" },
-    { icon: "mdi:sync", title: "跨平台同步", description: "iOS、Android多端数据互通" },
-    { icon: "mdi:palette", title: "主题定制", description: "深色/浅色模式随心切换" },
+    { icon: "mdi:sync", title: "多端实时同步", description: "覆盖 Android、HarmonyOS、iOS 与 PC" },
+    { icon: "mdi:account-voice", title: "用户反馈闭环", description: "通过访谈、社群与行为数据验证需求" },
   ],
 };
 
 const charts = [
   {
     id: "platform",
-    title: "各端用户分布",
-    description: "Android 与 iOS 用户占比",
+    title: "多端覆盖",
+    description: "Android、HarmonyOS、iOS 与 PC",
     icon: "mdi:cellphone",
-    placeholder: "各端用户数量占比（饼图）",
+    placeholder: "Android / HarmonyOS / iOS / PC 端用户分布待补充",
   },
   {
     id: "activity",
-    title: "用户活跃度",
-    description: "日活跃用户与月活跃用户趋势",
+    title: "AI 功能使用",
+    description: "全应用 AI 使用率超过 80%",
     icon: "mdi:chart-timeline-variant",
-    placeholder: "DAU/MAU 活跃度趋势（折线图）",
+    placeholder: "全应用 AI 使用率超过 80% · 趋势图待补充",
   },
   {
     id: "completion",
-    title: "任务完成率",
-    description: "用户任务完成情况分析",
+    title: "冷启动增长",
+    description: "800+ 有效下载，400+ 注册用户",
     icon: "mdi:check-circle",
-    placeholder: "任务完成率统计（柱状图）",
+    placeholder: "800+ 有效下载 · 400+ 注册用户",
   },
   {
     id: "retention",
-    title: "用户留存率",
-    description: "次日/7日/30日用户留存",
+    title: "次月留存",
+    description: "通过需求验证与产品迭代提升留存",
     icon: "mdi:account-group",
-    placeholder: "用户留存率曲线（折线图）",
+    placeholder: "次月留存率 92% · 留存曲线待补充",
   },
 ];
 ---
 
-<Layout title="Deadliner - 项目详情" description="Deadliner 任务管理 APP 详细介绍">
+<Layout title="Deadliner - 项目详情" description="Deadliner 多端 AI Native 任务管理产品">
   <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-4xl p-4 sm:p-6 md:p-12 duration-700">
     <header class="mb-12">
       <a href="/projects" class="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -74,7 +74,7 @@ const charts = [
               进行中
             </span>
           </div>
-          <p class="text-sm sm:text-base text-muted-foreground">帮助用户高效管理任务和时间的移动应用</p>
+          <p class="text-sm sm:text-base text-muted-foreground">覆盖 Android、HarmonyOS、iOS 与 PC 的 AI Native 任务管理产品</p>
         </div>
       </div>
     </header>
@@ -95,11 +95,11 @@ const charts = [
         </div>
         <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
           <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.retention}</div>
-          <div class="text-xs text-muted-foreground uppercase tracking-wider">用户留存提升</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">次月留存率</div>
         </div>
         <div class="rounded-xl border border-border/50 bg-muted/20 p-5 text-center transition-all duration-300 hover:border-primary/30 hover:bg-muted/30 hover:-translate-y-1">
           <div class="text-3xl font-bold text-primary mb-1">{deadlinerData.stats.dailyActive}</div>
-          <div class="text-xs text-muted-foreground uppercase tracking-wider">日活增长</div>
+          <div class="text-xs text-muted-foreground uppercase tracking-wider">覆盖平台</div>
         </div>
       </div>
     </section>
@@ -183,7 +183,7 @@ const charts = [
         技术栈
       </h2>
       <div class="flex flex-wrap gap-3">
-        {["SwiftUI", "Compose", "ArkUI", "Firebase", "Figma"].map((tech) => (
+        {["Android", "HarmonyOS", "iOS", "PC", "AI Agent", "Prompt Engineering"].map((tech) => (
           <span class="rounded-lg border border-border/50 bg-muted/20 px-4 py-2 font-mono text-sm text-primary/70 hover:border-primary/30 hover:bg-muted/30 transition-all">
             {tech}
           </span>
@@ -198,13 +198,13 @@ const charts = [
       </h2>
       <div class="flex flex-wrap gap-4">
         <a
-          href="https://deadliner.app"
+          href="https://apps.apple.com/cn/app/deadliner%E5%BE%85%E5%8A%9E%E6%97%A5%E5%8E%86/id6760482719"
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-6 py-3 font-medium hover:border-primary/40 hover:bg-muted/30 transition-all"
         >
           <Icon name="mdi:web" class="h-5 w-5" />
-          访问官网
+          iOS App Store
         </a>
         <a
           href="https://github.com/DeadlinerStudio"
@@ -214,6 +214,24 @@ const charts = [
         >
           <Icon name="mdi:github" class="h-5 w-5" />
           GitHub
+        </a>
+        <a
+          href="https://github.com/DeadlinerStudio/Deadliner/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-6 py-3 font-medium hover:border-primary/40 hover:bg-muted/30 transition-all"
+        >
+          <Icon name="mdi:android" class="h-5 w-5" />
+          Android 下载
+        </a>
+        <a
+          href="https://appgallery.huawei.com/app/detail?id=com.aritxonly.deadliner&channelId=SHARE&source=appshare"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 rounded-xl border border-border/50 bg-muted/20 px-6 py-3 font-medium hover:border-primary/40 hover:bg-muted/30 transition-all"
+        >
+          <Icon name="mdi:cellphone" class="h-5 w-5" />
+          华为应用市场
         </a>
       </div>
     </section>
