@@ -25,7 +25,8 @@ const site = {
     { name: "首页", subtitle: "HOME", href: "/" },
     { name: "项目", subtitle: "PROJECTS", href: "/projects" },
     { name: "经历", subtitle: "EXPERIENCE", href: "/experience" },
-    { name: "合作", subtitle: "PARTNERS", href: "/friends" },
+    // 暂时隐藏合作入口，保留合作页面内容。
+    // { name: "合作", subtitle: "PARTNERS", href: "/friends" },
   ],
 
   // --- 社交链接 ---
@@ -71,6 +72,7 @@ const site = {
 
   // --- Feature Toggles ---
   features: {
+    homepageBlog: false,
     search: true,
     rss: true,
     // Auto-mark posts as "new" if published within this many days (0 to disable)

@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import homeDesk from "@/assets/home-desk.png";
 import { getCollection, render } from "astro:content";
 import site from "@/config/site";
 
@@ -10,22 +12,46 @@ const sections = await Promise.all(entries.map(async (entry) => ({
 })));
 ---
 
-<section class="mb-12 sm:mb-16" aria-label="首页介绍">
-  <div class="space-y-4 sm:space-y-6">
-    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">{site.hero.greeting}</h2>
-    <p class="text-base sm:text-lg md:text-xl leading-relaxed font-light text-muted-foreground">
-      {site.hero.description}
-    </p>
-  </div>
+<section class="home-document mb-10 sm:mb-12" aria-label="首页介绍">
+  <header class="border-b border-border/70 pb-8 sm:pb-10">
+    <div class="mb-5 flex items-center gap-2.5 text-[10px] font-medium tracking-[0.2em] text-primary/80 uppercase" aria-hidden="true">
+      <span class="h-px w-6 bg-primary/50"></span>
+      A little about me
+    </div>
+    <div class="flex items-center justify-between gap-4 sm:gap-6">
+      <div class="min-w-0">
+        <h2 class="mb-3 text-2xl font-bold tracking-tight sm:text-4xl leading-tight">{site.hero.greeting}</h2>
+        <p class="mb-0 text-sm sm:text-base leading-relaxed text-muted-foreground/80">
+          {site.hero.description}
+        </p>
+      </div>
+      <Image
+        src={homeDesk}
+        alt=""
+        aria-hidden="true"
+        width={320}
+        widths={[160, 320, 480]}
+        sizes="(min-width: 640px) 160px, 88px"
+        format="webp"
+        quality={85}
+        loading="eager"
+        class="h-auto w-[5.5rem] shrink-0 sm:w-40 dark:brightness-95"
+      />
+    </div>
+  </header>
 
-  <div class="mt-10 space-y-8 sm:mt-12 sm:space-y-10">
-    {sections.map(({ entry, Content }) => (
-      <section aria-labelledby={`home-${entry.id}`}>
-        <h3 id={`home-${entry.id}`} class="mb-3 flex items-center gap-2 text-lg font-semibold text-foreground">
-          <Icon name={entry.data.icon} size={20} class="shrink-0 text-primary" aria-hidden="true" />
-          {entry.data.title}
-        </h3>
-        <div class="prose prose-sm dark:prose-invert max-w-none leading-relaxed text-muted-foreground prose-p:my-3 prose-ul:my-3 prose-ol:my-3 prose-headings:text-foreground prose-a:text-primary">
+  <div class="mt-8 space-y-9 sm:mt-10 sm:space-y-11">
+    {sections.map(({ entry, Content }, index) => (
+      <section class="document-section" aria-labelledby={`home-${entry.id}`}>
+        <div class="mb-4 flex items-center gap-3">
+          <Icon name={entry.data.icon} size={19} class="shrink-0 text-primary/80" aria-hidden="true" />
+          <h3 id={`home-${entry.id}`} class="mb-0 text-base sm:text-lg font-semibold tracking-tight text-foreground">
+            {entry.data.title}
+          </h3>
+          <span class="h-px flex-1 bg-border/60" aria-hidden="true"></span>
+          <span class="font-mono text-[10px] text-muted-foreground/40" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+        </div>
+        <div class="document-copy prose prose-sm dark:prose-invert max-w-none text-muted-foreground prose-headings:text-foreground prose-a:text-primary">
           <Content />
         </div>
       </section>
@@ -34,17 +60,81 @@ const sections = await Promise.all(entries.map(async (entry) => ({
 </section>
 
 {site.hero.cards.length > 0 && (
-  <section class="mb-12 sm:mb-16" aria-label="近况与成果">
-    <dl class="divide-y divide-border/50 border-y border-border/50">
+  <section class="mb-4 border-t border-border/70 pt-6" aria-labelledby="home-highlights">
+    <h3 id="home-highlights" class="mb-3 text-xs font-medium tracking-widest text-muted-foreground/65">近况与成果</h3>
+    <dl class="divide-y divide-border/40">
       {site.hero.cards.map((item) => (
-        <div class="grid grid-cols-1 gap-2 py-5 sm:grid-cols-[7rem_1fr] sm:gap-5">
-          <dt class="flex items-center gap-2 text-xs font-medium text-primary">
+        <div class="grid grid-cols-1 gap-2 py-4 sm:grid-cols-[6.5rem_1fr] sm:gap-4">
+          <dt class="flex items-center gap-2 text-xs font-medium text-muted-foreground/80">
             <Icon name={item.icon} size={16} aria-hidden="true" />
             {item.label}
           </dt>
-          <dd class="text-sm leading-relaxed text-foreground/90">{item.value}</dd>
+          <dd class="text-[13px] leading-7 text-muted-foreground">{item.value}</dd>
         </div>
       ))}
     </dl>
   </section>
 )}
+
+<style>
+  .document-copy {
+    font-size: 0.875rem;
+    line-height: 1.95;
+    overflow-wrap: anywhere;
+  }
+
+  .document-copy :global(p) {
+    margin-block: 0.8rem;
+  }
+
+  .document-copy :global(ul),
+  .document-copy :global(ol) {
+    margin-block: 0.9rem;
+    padding-inline-start: 1.4rem;
+  }
+
+  .document-copy :global(li) {
+    margin-block: 0.55rem;
+    padding-inline-start: 0.3rem;
+  }
+
+  .document-copy :global(li::marker) {
+    color: color-mix(in oklch, var(--primary) 45%, var(--border));
+  }
+
+  .document-copy :global(li > ul),
+  .document-copy :global(li > ol) {
+    margin-block: 0.35rem;
+    border-inline-start: 1px solid var(--border);
+    padding-inline-start: 1.35rem;
+  }
+
+  .document-copy :global(strong) {
+    color: var(--foreground);
+    font-weight: 600;
+  }
+
+  .document-copy :global(a) {
+    text-decoration-color: color-mix(in oklch, var(--primary) 30%, transparent);
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+  }
+
+  .document-copy :global(a:hover) {
+    text-decoration-color: var(--primary);
+  }
+
+  .document-copy :global(> :first-child) {
+    margin-top: 0;
+  }
+
+  .document-copy :global(> :last-child) {
+    margin-bottom: 0;
+  }
+
+  @media (min-width: 640px) {
+    .document-copy {
+      font-size: 0.9375rem;
+    }
+  }
+</style>

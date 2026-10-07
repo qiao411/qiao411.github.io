@@ -2,11 +2,28 @@
 title: Deadliner 任务管理 APP
 description: 一款帮助用户高效管理任务和时间的移动应用。
 tech: [SwiftUI, Compose, ArkUI, Firebase, Figma]
+role: 联合创始人 · 运营负责人
+highlights:
+  - 从 0 到 1 参与产品规划与设计，负责用户增长与社区运营
+  - 通过 AB 测试与用户反馈，持续优化任务管理体验
+metrics:
+  - value: 3000+
+    label: 累计用户
+  - value: 100+
+    label: 核心测试群
+  - value: +30%
+    label: 用户留存率提升
 links:
+  homepage: https://www.aritxonly.top/deadliner/
   github: https://github.com/DeadlinerStudio
   demo: https://deadliner.app
 status: in-progress
 image: "/Deadliner Logo.jpg"
+preview:
+  src: /images/deadliner-poster.png
+  alt: Deadliner 多平台产品海报，展示任务列表、灵感记录、统计概览、AI 对话和手表端界面
+  width: 1920
+  height: 1240
 ---
 
 ## 项目概述

@@ -1,0 +1,173 @@
+---
+import { Icon } from "astro-icon/components";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+  featured?: boolean;
+}
+
+const { project, featured = false } = Astro.props;
+const { data } = project;
+const statusLabels = { planning: "筹备中", "in-progress": "持续迭代", completed: "已完成", archived: "已归档" };
+const projectIcons: Record<string, string> = {
+  "ai-interview-system": "mdi:account-voice",
+  "ai-multimodal-tool": "mdi:layers-triple-outline",
+};
+const actions = [
+  { href: data.links?.github, label: "Source", icon: "mdi:github", primary: false },
+  { href: data.links?.homepage, label: "官网", icon: "mdi:arrow-top-right", primary: featured },
+].filter((action) => action.href);
+---
+
+<article class:list={["project-card flex min-w-0 flex-col rounded-2xl border p-5 sm:p-6", { featured }]} aria-labelledby={`project-${project.id}`}>
+  <div class="mb-5 flex items-start gap-3.5">
+    <div class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border/60 bg-primary/5 text-primary">
+      {data.image ? (
+        <img src={data.image} alt="" width={48} height={48} loading="lazy" class="h-full w-full object-contain" />
+      ) : (
+        <Icon name={projectIcons[project.id] || "mdi:cube-outline"} size={24} aria-hidden="true" />
+      )}
+    </div>
+    <div class="min-w-0 flex-1">
+      {featured && <p class="mb-1.5 text-[10px] font-medium tracking-[0.18em] text-primary/80">重点项目 / FEATURED</p>}
+      <h3 id={`project-${project.id}`} class:list={["mb-1.5 font-semibold leading-snug tracking-tight", featured ? "text-xl sm:text-2xl" : "text-lg"]}>
+        {data.links?.homepage ? (
+          <a href={data.links.homepage} target="_blank" rel="noopener noreferrer" class="hover:text-primary">{data.title}</a>
+        ) : data.title}
+      </h3>
+      <span class="inline-flex items-center gap-1.5 text-[11px] text-muted-foreground/80">
+        <span class:list={["h-1.5 w-1.5 rounded-full", data.status === "in-progress" ? "bg-primary" : "bg-muted-foreground/45"]} aria-hidden="true"></span>
+        {statusLabels[data.status]}
+      </span>
+    </div>
+  </div>
+  <p class="mb-5 text-sm leading-7 text-muted-foreground">{data.description}</p>
+
+  <div class="project-body">
+  {(featured || data.preview) && (
+    <figure class:list={["project-preview mb-6 overflow-hidden rounded-xl border border-border/60", { "has-preview": Boolean(data.preview) }]}>
+      {data.preview ? (
+        <a href={data.preview.src} target="_blank" rel="noopener noreferrer" class="preview-link group relative flex h-full w-full items-center justify-center" aria-label={`查看${data.title}产品预览原图（新窗口）`}>
+          <img src={data.preview.src} alt={data.preview.alt} width={data.preview.width} height={data.preview.height} loading="lazy" decoding="async" class="h-auto w-full object-contain" />
+        </a>
+      ) : (
+        <div class="preview-placeholder flex aspect-[16/9] flex-col items-center justify-center gap-3 p-6 text-center">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/15 bg-card/60 text-primary/45">
+            <Icon name="mdi:image-outline" size={24} aria-hidden="true" />
+          </span>
+          <div>
+            <p class="mb-1 text-sm font-medium text-muted-foreground/75">Deadliner 产品预览</p>
+            <p class="mb-0 text-[11px] tracking-wide text-muted-foreground/50">产品截图 · 待补充</p>
+          </div>
+        </div>
+      )}
+    </figure>
+  )}
+
+  <div class="project-details flex min-w-0 flex-1 flex-col">
+  {data.role && (
+    <div class="mb-4 flex flex-col gap-1.5 sm:flex-row sm:items-baseline sm:gap-3">
+      <span class="shrink-0 text-[11px] text-muted-foreground/65">我的角色</span>
+      <p class="mb-0 text-[13px] font-medium leading-6 text-foreground/90">{data.role}</p>
+    </div>
+  )}
+  {data.highlights.length > 0 && (
+    <ul class="mb-5 space-y-2">
+      {data.highlights.map((highlight) => (
+        <li class="flex items-start gap-2 text-[13px] leading-6 text-muted-foreground">
+          <Icon name="mdi:check" size={15} class="mt-1 shrink-0 text-primary/65" aria-hidden="true" />
+          <span>{highlight}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  {data.metrics.length > 0 && (
+    <dl class="mb-5 grid grid-cols-3 divide-x divide-border/60 rounded-xl border border-border/60 bg-primary/[0.035] py-4">
+      {data.metrics.map((metric) => (
+        <div class="flex flex-col items-center gap-1.5 px-2 text-center">
+          <dt class="order-2 text-[10px] sm:text-[11px] leading-5 text-muted-foreground/80">{metric.label}</dt>
+          <dd class="text-lg sm:text-2xl font-semibold tracking-tight text-primary">{metric.value}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
+
+  <div class="mt-auto border-t border-border/60 pt-4">
+    <div class="flex flex-wrap gap-1.5" aria-label="技术栈">
+      {data.tech.map((tech) => (
+        <span class="rounded-md border border-border/50 bg-muted/35 px-2 py-1 text-[10px] font-medium text-muted-foreground/80">{tech}</span>
+      ))}
+    </div>
+    {actions.length > 0 && (
+      <div class="mt-4 flex flex-wrap gap-2">
+        {actions.map((action) => (
+          <a href={action.href} target="_blank" rel="noopener noreferrer" class:list={[
+            "inline-flex items-center gap-2 rounded-lg border px-3.5 py-2.5 text-xs font-medium transition-colors hover:no-underline",
+            action.primary ? "border-primary bg-primary text-primary-foreground hover:bg-primary/90" : "border-border/70 bg-card/40 text-muted-foreground hover:border-primary/40 hover:text-primary",
+          ]}>
+            <Icon name={action.icon} size={15} aria-hidden="true" />
+            {action.label}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+  </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    border-color: color-mix(in oklch, var(--border) 80%, transparent);
+    background: color-mix(in oklch, var(--card) 60%, transparent);
+  }
+  .project-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .project-card.featured {
+    border-color: color-mix(in oklch, var(--primary) 22%, var(--border));
+    background: linear-gradient(145deg, color-mix(in oklch, var(--primary) 5%, var(--card)), color-mix(in oklch, var(--card) 75%, transparent));
+  }
+  .preview-placeholder {
+    background:
+      radial-gradient(ellipse at 25% 80%, color-mix(in oklch, var(--primary) 9%, transparent), transparent 65%),
+      color-mix(in oklch, var(--muted) 60%, var(--card));
+  }
+  .project-preview.has-preview,
+  .featured .project-preview.has-preview {
+    align-self: start;
+    width: 100%;
+    background: transparent;
+  }
+
+  .has-preview .preview-link {
+    height: auto;
+  }
+
+  @container projects (min-width: 780px) {
+    .featured .project-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: stretch;
+    }
+
+    .featured .project-preview {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      background: color-mix(in oklch, var(--muted) 60%, var(--card));
+    }
+
+    .featured .preview-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 340px;
+      aspect-ratio: auto;
+    }
+  }
+</style>

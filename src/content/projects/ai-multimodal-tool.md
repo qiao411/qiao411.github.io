@@ -2,6 +2,10 @@
 title: AI 多模态信息整合工具
 description: 一款能够整合多种模态信息（文本、图像、语音）的 AI 工具。
 tech: [Python, React, TensorFlow, OpenAI API]
+role: 用户调研 · 产品设计 · 路演展示
+highlights:
+  - 完成 500+ 用户调研，梳理用户画像与核心需求
+  - 参与商业计划书与路演，获得南京大学「天池杯」奖项
 links:
   github: https://github.com/your-username/ai-multimodal-tool
   demo: https://ai-multimodal-tool.com

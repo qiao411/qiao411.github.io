@@ -8,11 +8,11 @@ import Layout from "@/layouts/Layout.astro";
 
 <Layout title={site.meta.title} description={site.meta.description}>
   <div
-    class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-4 sm:p-6 md:p-16"
+    class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-3xl px-1 py-6 sm:px-3 sm:py-8 md:px-4 md:py-10 lg:px-6"
   >
     <Hero />
 
-    <RecentPosts />
+    {site.features.homepageBlog && <RecentPosts />}
 
     <!-- <AboutContent /> -->
   </div>

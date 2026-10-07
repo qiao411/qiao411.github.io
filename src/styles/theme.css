@@ -3,8 +3,9 @@
 /*
  * Theme Color Customization
  * -------------------------
- * All colors are based on OKLch color space with a consistent hue value.
- * To change the entire color palette, find-and-replace the hue number:
+ * Colors use OKLch. Light mode uses sage green; dark mode uses neutral
+ * charcoal surfaces with a muted sage accent.
+ * To change the light color palette, update its hue number:
  *
  *   Current hue: 165 (sage green)
  *
@@ -42,20 +43,20 @@
 }
 
 .dark {
-  /* --- Dark Mode: Deep Moss --- */
-  --background: oklch(0.14 0.02 165);
-  --foreground: oklch(0.92 0.005 165);
+  /* --- Dark Mode: Charcoal & Soft Sage --- */
+  --background: oklch(0.18 0.004 260);
+  --foreground: oklch(0.92 0.002 260);
 
-  --card: oklch(0.18 0.02 165);
-  --card-foreground: oklch(0.88 0.01 165);
+  --card: oklch(0.225 0.004 260);
+  --card-foreground: oklch(0.92 0.002 260);
 
-  --primary: oklch(0.75 0.15 160);
-  --primary-foreground: oklch(0.1 0.02 165);
+  --primary: oklch(0.76 0.065 165);
+  --primary-foreground: oklch(0.18 0.004 260);
 
-  --muted: oklch(0.28 0.02 160);
-  --muted-foreground: oklch(0.75 0.015 165);
+  --muted: oklch(0.29 0.004 260);
+  --muted-foreground: oklch(0.73 0.006 260);
 
-  --border: oklch(0.26 0.02 165);
+  --border: oklch(0.335 0.004 260);
   --shadow-main: 0 30px 60px -15px oklch(0 0 0 / 0.5);
 
   --callout-info: oklch(0.75 0.12 250);

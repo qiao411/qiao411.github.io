@@ -5,6 +5,15 @@ import "@/styles/global.css";
 import Umami from "@/components/analytics/Umami.astro";
 import MobileMenu from "@/components/layout/MobileMenu.astro";
 import site from "@/config/site";
+import { getImage } from "astro:assets";
+import desktopGarden from "@/assets/desktop-garden.png";
+
+const desktopBackground = await getImage({
+  src: desktopGarden,
+  width: 1920,
+  format: "webp",
+  quality: 80,
+});
 
 type Props = HeadProps;
 
@@ -16,6 +25,7 @@ const head = Astro.props;
   <body
     class="flex min-h-screen items-center justify-center bg-background p-1 sm:p-2 md:p-6 font-display text-foreground antialiased selection:bg-primary/20 md:p-6"
     data-pagefind-body
+    style={`--desktop-background: url("${desktopBackground.src}")`}
   >
     <slot />
 

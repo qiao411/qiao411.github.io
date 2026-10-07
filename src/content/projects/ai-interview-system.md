@@ -2,6 +2,10 @@
 title: 多模态 AI 面试评测系统
 description: 基于多模态技术的智能面试评测系统，可自动分析面试者的表现。
 tech: [React Native, Flask, MySQL, TensorFlow]
+role: 数据负责人 · 产品运营 · 视觉设计
+highlights:
+  - 从 0 到 1 搭建面试题库，组织测试与用户反馈收集
+  - 获得挑战杯全国三等奖，申请相关专利 1 项
 links:
   github: https://github.com/your-username/ai-interview-system
   demo: https://ai-interview-system.com

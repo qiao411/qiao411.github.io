@@ -4,6 +4,53 @@
 
 @import "./theme.css";
 
+/* Keep the botanical backdrop outside the document panel on desktop. */
+@media (min-width: 1024px) {
+  body {
+    isolation: isolate;
+  }
+
+  .site-container {
+    background-color: color-mix(in oklch, var(--card) 82%, transparent);
+    border-color: color-mix(in oklch, var(--card) 65%, var(--border));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+  }
+
+  .dark .site-container {
+    background-color: color-mix(in oklch, var(--card) 86%, transparent);
+    border-color: color-mix(in oklch, var(--foreground) 12%, transparent);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -16px;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(8px);
+    background-image:
+      linear-gradient(
+        color-mix(in oklch, var(--background) 25%, transparent),
+        color-mix(in oklch, var(--background) 25%, transparent)
+      ),
+      var(--desktop-background);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .dark body::before {
+    filter: blur(8px) grayscale(85%);
+    background-image:
+      linear-gradient(
+        color-mix(in oklch, var(--background) 82%, transparent),
+        color-mix(in oklch, var(--background) 82%, transparent)
+      ),
+      var(--desktop-background);
+  }
+}
+
 /* Focus indicators for accessibility */
 a:focus-visible,
 button:focus-visible {

@@ -1,192 +1,53 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
+import ProjectCard from "@/components/projects/ProjectCard.astro";
 import { getCollection } from "astro:content";
 import site from "@/config/site";
-import { Icon } from "astro-icon/components";
 
 const projects = await getCollection("projects");
-// 将deadliner项目移到最前面
-const sortedProjects = [...projects].sort((a, b) => {
-  if (a.data.title.includes("Deadliner")) return -1;
-  if (b.data.title.includes("Deadliner")) return 1;
-  return 0;
-});
+const featured = projects.find((project) => project.data.title.includes("Deadliner"));
+const otherProjects = projects.filter((project) => project.id !== featured?.id);
 ---
 
 <Layout title={site.labels.projectsTitle} description={site.labels.projectsDescription}>
-  <div class="animate-in fade-in slide-in-from-bottom-4 mx-auto max-w-2xl p-4 sm:p-6 md:p-16">
-    <header class="mb-16">
-      <h2 class="mb-4 text-3xl font-bold tracking-tight">
-        {site.labels.projectsTitle}
-      </h2>
-      <p class="text-sm font-light text-muted-foreground italic">
-        {site.labels.projectsDescription}
-      </p>
+  <div class="projects-page animate-in mx-auto w-full px-1 py-6 sm:px-3 sm:py-8 md:px-4 md:py-10 lg:px-6">
+    <header class="mb-8 border-b border-border/70 pb-7 sm:mb-10 sm:pb-8">
+      <div class="mb-5 flex items-center gap-2.5 text-[10px] font-medium tracking-[0.2em] text-primary/80 uppercase" aria-hidden="true">
+        <span class="h-px w-6 bg-primary/50"></span>
+        Selected work
+      </div>
+      <div class="mb-3 flex items-baseline justify-between gap-4">
+        <h2 class="mb-0 text-3xl font-bold tracking-tight sm:text-4xl">{site.labels.projectsTitle}</h2>
+        <span class="shrink-0 text-xs text-muted-foreground/60">{projects.length} 个项目</span>
+      </div>
+      <p class="mb-0 text-sm leading-7 text-muted-foreground/80">{site.labels.projectsDescription}</p>
     </header>
 
-    <div class="space-y-4">
-      {/* Deadliner项目 - 占据两列 */}
-      {sortedProjects.length > 0 && (
-        <div class="col-span-full">
-          <div
-            class="deadliner-card group relative h-full cursor-pointer rounded-2xl border border-border/50 bg-muted/20 p-6 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg"
-            data-detail-url="/deadliner"
-            data-homepage={sortedProjects[0].data.links?.homepage}
-            data-github={sortedProjects[0].data.links?.github}
-          >
-            <div class="mb-4 flex items-start justify-between">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12 overflow-hidden">
-                {sortedProjects[0].data.image ? (
-                  <img
-                    src={sortedProjects[0].data.image}
-                    width={40}
-                    height={40}
-                    alt={`${sortedProjects[0].data.title}'s logo'`}
-                    loading={"lazy"}
-                    class="w-full h-full object-contain transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
-                  />
-                ) : (
-                  <span class="text-lg transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">✦</span>
-                )}
-              </div>
-              <div class="relative flex items-center">
-                <a
-                  href="/deadliner"
-                  class="absolute right-0 inline-flex items-center gap-1 text-xs text-primary opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 hover:text-primary/80"
-                  onclick="event.stopPropagation()"
-                >
-                  查看详情
-                  <Icon name="mdi:arrow-right" class="h-3 w-3" />
-                </a>
-                <span class="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 text-[10px] font-bold tracking-widest text-primary uppercase transition-all duration-300 group-hover:-translate-x-16 group-hover:mr-2">
-                  {sortedProjects[0].data.status}
-                </span>
-              </div>
-            </div>
-            <h3 class="mb-3 text-xl font-bold">
-              {sortedProjects[0].data.title}
-            </h3>
-            <p class="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground">
-              {sortedProjects[0].data.description}
-            </p>
-            <div class="mb-4 flex flex-wrap gap-3">
-              {sortedProjects[0].data.tech.map((t) => (
-                <span class="font-mono text-[11px] text-primary/60">
-                  #{t}
-                </span>
-              ))}
-            </div>
-            {sortedProjects[0].data.links && (
-              <div class="flex gap-3 card-links">
-                {sortedProjects[0].data.links.homepage && (
-                  <a
-                    href={sortedProjects[0].data.links.homepage}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                    onclick="event.stopPropagation()"
-                  >
-                    <Icon name="mdi:web" class="h-4 w-4" />
-                    Website
-                  </a>
-                )}
-                {sortedProjects[0].data.links.github && (
-                  <a
-                    href={sortedProjects[0].data.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-4 py-2.5 text-sm font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                    onclick="event.stopPropagation()"
-                  >
-                    <Icon name="mdi:github" class="h-4 w-4" />
-                    Source
-                  </a>
-                )}
-              </div>
-            )}
-          </div>
+    {featured && <ProjectCard project={featured} featured />}
+
+    {otherProjects.length > 0 && (
+      <section class:list={[{ "mt-9 sm:mt-10": featured }]} aria-labelledby="other-projects">
+        <div class="mb-5 flex items-center gap-3">
+          <h3 id="other-projects" class="mb-0 text-sm font-medium text-muted-foreground">更多探索</h3>
+          <span class="h-px flex-1 bg-border/70" aria-hidden="true"></span>
+          <span class="font-mono text-[10px] text-muted-foreground/50" aria-hidden="true">{String(otherProjects.length).padStart(2, "0")}</span>
         </div>
-      )}
-      
-      {/* 其他项目 - 两列布局 */}
-      {sortedProjects.length > 1 && (
-        <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {sortedProjects.slice(1).map((project) => (
-            <div class="group flex h-full flex-col rounded-2xl border border-border/50 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/30 hover:bg-muted/40 hover:-translate-y-1 hover:shadow-lg">
-              <div class="mb-4 flex items-start justify-between">
-                <div class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary transition-all duration-500 group-hover:bg-primary/25 group-hover:scale-110 group-hover:rotate-12">
-                  {project.data.image ? (
-                    <Image
-                      src={project.data.image}
-                      width={28}
-                      height={28}
-                      alt={`${project.data.title}'s logo'`}
-                      loading={"lazy"}
-                      class="transition-all duration-500 group-hover:scale-110 group-hover:rotate-12"
-                    />
-                  ) : (
-                    <span class="text-sm transition-all duration-500 group-hover:scale-110 group-hover:rotate-12">✦</span>
-                  )}
-                </div>
-                <span class="rounded-full border border-primary/20 bg-primary/10 px-2 py-0.5 text-[9px] font-bold tracking-widest text-primary uppercase">
-                  {project.data.status}
-                </span>
-              </div>
-              <h3 class="mb-2 text-base font-bold">
-                {project.data.title}
-              </h3>
-              <p class="mb-4 flex-1 text-xs leading-relaxed text-muted-foreground line-clamp-2">
-                {project.data.description}
-              </p>
-              <div class="mb-3 flex flex-wrap gap-2">
-                {project.data.tech.map((t) => (
-                  <span class="font-mono text-[10px] text-primary/50">
-                    #{t}
-                  </span>
-                ))}
-              </div>
-              {project.data.links && (
-                <div class="flex gap-2">
-                  {project.data.links.homepage && (
-                    <a
-                      href={project.data.links.homepage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-3 py-2 text-[11px] font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                    >
-                      <Icon name="mdi:web" class="h-3 w-3" />
-                      Website
-                    </a>
-                  )}
-                  {project.data.links.github && (
-                    <a
-                      href={project.data.links.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-3 py-2 text-[11px] font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                    >
-                      <Icon name="mdi:github" class="h-3 w-3" />
-                      Source
-                    </a>
-                  )}
-                  {project.data.links.demo && (
-                    <a
-                      href={project.data.links.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="flex items-center gap-1 rounded-lg border border-border/50 bg-muted/30 px-3 py-2 text-[11px] font-medium text-foreground/70 hover:border-primary/40 hover:text-primary"
-                    >
-                      <Icon name="mdi:open-in-new" class="h-3 w-3" />
-                      Demo
-                    </a>
-                  )}
-                </div>
-              )}
-            </div>
-          ))}
+        <div class="exploration-grid grid gap-4">
+          {otherProjects.map((project) => <ProjectCard project={project} />)}
         </div>
-      )}
-    </div>
+      </section>
+    )}
   </div>
 </Layout>
+
+<style>
+  .projects-page {
+    container: projects / inline-size;
+  }
+
+  @container projects (min-width: 780px) {
+    .exploration-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

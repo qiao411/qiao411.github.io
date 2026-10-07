@@ -38,6 +38,15 @@ const projects = defineCollection({
     title: z.string(),
     description: z.string(),
     tech: z.array(z.string()),
+    role: z.string().optional(),
+    highlights: z.array(z.string()).default([]),
+    metrics: z.array(z.object({ value: z.string(), label: z.string() })).default([]),
+    preview: z.object({
+      src: z.string(),
+      alt: z.string(),
+      width: z.number().positive().optional(),
+      height: z.number().positive().optional(),
+    }).optional(),
     links: z.object({
       homepage: z.string().url().optional(),
       github: z.string().url().optional(),
